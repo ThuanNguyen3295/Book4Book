@@ -8,13 +8,13 @@ import {FormBuilder, FormGroup} from '@angular/forms';
 })
 export class AppComponent {
   title = 'app';
-  options: FormGroup;
+  // options: FormGroup;
 
-  constructor(fb: FormBuilder) {
-    this.options = fb.group({
-      bottom: 0,
-      fixed: false,
-      top: 0
-    });
-  }
+  // constructor(fb: FormBuilder) {
+  //   this.options = fb.group({
+  //     bottom: 0,
+  //     fixed: false,
+  //     top: 0
+  //   });
+  // }
 }
