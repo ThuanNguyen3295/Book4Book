@@ -15,7 +15,7 @@ container{
 }
 .mat-toolbar{
     text-align: center;
-=======
+}
 
 .profile-picture {
     width: 50px;
@@ -47,11 +47,14 @@ container{
             outline: none;
         }
 
-        .search-container button {
+        .search-container .search-icon {
+            /* DONT FUCK WITH THE NEXT 4 LINES */
             border-top-right-radius: 5px;
-            border-bottom-right-radius: 5px;          
+            border-bottom-right-radius: 5px; 
+            border-top-left-radius: 0px;
+            border-bottom-left-radius: 0px;          
             border: none;
-            background: #2558c5;
+            background: #2667df;
             height: 50px;
             width: 50px;
             color: white;
