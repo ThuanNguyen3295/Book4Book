@@ -1,16 +1,35 @@
 .full{
     height: 86vh;
-    background: lightblue;
+    background:linear-gradient(
+        rgba(214, 234, 248, 0.95),
+        rgba(233, 228, 255, 0.6)           
+    );
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
 }
-.example-card {
-    max-width: 400px;
-  }
-  
-  .example-header-image {
-    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-    background-size: cover;
-  }
+
+.book-card {
+    max-width: 80%;
+    margin-top: 20px; 
+}
+
+.container {
+    margin-left: 20px !important;
+    margin-right: 20px !important;  
+}
+mat-card{
+    text-align: center !important;
+}
+.book-cover{
+    object-fit: cover;
+    height: 270px !important;
+}
+mat-card-content{
+    height: 10px !important;
+    margin-bottom: 0 !important; 
+}
+mat-card-actions{
+    padding-top: 0 !important; 
+}

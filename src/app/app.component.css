@@ -13,6 +13,9 @@ mat-toolbar {
 container{
     height: 100% !important;
 }
+.mat-toolbar{
+    text-align: center;
+=======
 
 .profile-picture {
     width: 50px;
