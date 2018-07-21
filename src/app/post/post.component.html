@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="form">
+        <mat-form-field hintLabel="Max 30 characters">
+            <input matInput #input maxlength="10" required placeholder="Book Title">
+            <mat-hint align="end">{{input.value?.length || 0}}/10</mat-hint>
+        </mat-form-field>
+        <mat-form-field>
+            <textarea matInput placeholder="Description"></textarea>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-select required placeholder="Genre">
+              <mat-option value="option">Option</mat-option>
+              <mat-option value="option">Option</mat-option>
+              <mat-option value="option">Option</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-select  required placeholder="Subject">
+              <mat-option value="option">Option</mat-option>
+              <mat-option value="option">Option</mat-option>
+              <mat-option value="option">Option</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Version">
+        </mat-form-field>
+        <button class="select-image" mat-raised-button color="accent" outline ion-button round> 
+            <i class="material-icons">
+                add_photo_alternate
+            </i>
+            Select Picture
+            <input id="file-input" name="file" type="file" style="opacity: 0" (change)="setSelectedImage($event.target.files)"/>
+        </button>
+        <div class="button-submit">
+            <button mat-raised-button color="primary">Post</button>
+            <button mat-raised-button>Cancel</button>
+        </div>
+      </div>
+</div>

@@ -15,7 +15,7 @@ container{
 }
 .mat-toolbar{
     text-align: center;
-=======
+}
 
 .profile-picture {
     width: 50px;
@@ -40,4 +40,7 @@ container{
 .logo {padding-top: 6px;
     width: 100px;
     height: 100px;
+}
+mat-sidenav-content{
+    height: 87vh;
 }
