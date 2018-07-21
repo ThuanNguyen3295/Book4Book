@@ -1,3 +1,8 @@
+
+mat-toolbar {
+    background-color: #343d46;
+}
+
 .button-list button{
     display: block;
     width: 100%;
@@ -10,4 +15,29 @@ container{
 }
 .mat-toolbar{
     text-align: center;
+=======
+
+.profile-picture {
+    width: 50px;
+    height: 50px;
+}
+
+.search-box {
+    width: 300px;
+    height: 45px;
+    background: transparent !important;
+}
+.search-box input {
+   font-size: 0.8em;
+   border-radius: 10px;
+   outline: none;
+}
+
+.toolbar-spacer {
+    flex: 1 1 auto;
+}
+
+.logo {padding-top: 6px;
+    width: 100px;
+    height: 100px;
 }
