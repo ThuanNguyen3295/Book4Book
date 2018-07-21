@@ -1,3 +1,17 @@
 <div class="full">
-  
+  <div class="container">
+      <div class="row">
+          <div *ngFor="let book of books" class="col-md-3">
+            <mat-card class="book-card">
+              <img *ngIf="!book.image" class="book-cover" mat-card-image src="http://librosebooks.org/img/xggS:XXBBB.wVSVg87.81vXaEui7X2nttXnPXwVSVg8-iqWVfi-I-gVWq-VvjfV.fSv.png" alt="">
+              <img *ngIf="book.image" class="book-cover" mat-card-image src="{{book.image}}" alt="">
+              <mat-card-actions>                 
+                <button mat-icon-button>
+                    {{book.title}}<mat-icon>arrow_right_alt</mat-icon>
+                </button>
+              </mat-card-actions>
+            </mat-card>
+          </div>
+      </div>
+  </div>
 </div>

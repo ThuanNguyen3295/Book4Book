@@ -8,3 +8,6 @@
 container{
     height: 100% !important;
 }
+.mat-toolbar{
+    text-align: center;
+}

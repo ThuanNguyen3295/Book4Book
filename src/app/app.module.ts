@@ -95,6 +95,9 @@ export class CustomMaterialModule {}
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
+import { AuthService } from '../app/services/auth.service'
+import { RequestService } from '../app/services/request.service'
+import { HttpModule} from '@angular/http';
 
 const appRoutes: Routes = [
   {path:'', component: HomeComponent}
@@ -121,8 +124,9 @@ const appRoutes: Routes = [
     MatNativeDateModule,
     ReactiveFormsModule,
     RouterModule.forRoot(appRoutes),
+    HttpModule
   ],
-  providers: [],
+  providers: [AuthService, RequestService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
