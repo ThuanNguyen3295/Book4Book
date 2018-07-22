@@ -1,5 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
+import { MatSidenav} from '@angular/material';
+import { HostListener } from '@angular/core'
+import { LoginComponent } from '../app/login/login.component';
+import { MatDialog } from '@angular/material';
 
 @Component({
   selector: 'app-root',
@@ -8,13 +12,27 @@ import {FormBuilder, FormGroup} from '@angular/forms';
 })
 export class AppComponent {
   title = 'app';
-  // options: FormGroup;
-
-  // constructor(fb: FormBuilder) {
-  //   this.options = fb.group({
-  //     bottom: 0,
-  //     fixed: false,
-  //     top: 0
-  //   });
-  // }
+  //Can you this to passed the confirm or denied, use tooltip
+  dialogResult="";
+  @ViewChild('sidenavright') public myNav: MatSidenav;
+  constructor(public matDialog: MatDialog){
+  }
+  @HostListener('window:resize', ['$event'])
+  onResize(event) {
+    if (this.myNav != null && window.screen.width < 1200 ){
+      console.log("toggle rightnav on screen size < 1200")
+      this.myNav.toggle()
+    }
+  }
+  goToSignIn() {
+    let dialogRef = this.matDialog.open(LoginComponent, {
+      width : '700px',
+      data: 'Hello from DIALOG'
+    });
+    
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('Closeed the Dialog: {result}');
+      this.dialogResult=result;
+    })
+  }
 }

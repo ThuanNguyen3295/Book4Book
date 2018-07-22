@@ -12,16 +12,34 @@
 
 .book-card {
     max-width: 80%;
-    margin-top: 20px; 
+    margin-top: 20px;
 }
 
 .container {
-    margin-left: 20px !important;
-    margin-right: 20px !important;  
+    margin: auto
 }
 mat-card{
+    margin: auto;
     text-align: center !important;
+    transition: transform 0.5s ease !important;
 }
+mat-card .mat-card-image{
+    margin-bottom: 0 !important; 
+}
+
+mat-card:hover {
+    transform: scale(1.1, 1.1) !important;
+}
+mat-card button{
+    margin: 3px 0 3px 0; 
+    transition: background-color 1s ease !important;
+    justify-content: flex-end !important;
+    background-color: rgb(236, 235, 235); 
+}
+mat-card:hover button{
+    background-color: orange;
+}
+
 .book-cover{
     object-fit: cover;
     height: 270px !important;
@@ -33,3 +51,9 @@ mat-card-content{
 mat-card-actions{
     padding-top: 0 !important; 
 }
+mat-spinner {
+    position: fixed;
+    left: 50%;
+    top: 40%;
+}
+

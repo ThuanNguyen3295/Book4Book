@@ -1,43 +1,62 @@
 
 mat-toolbar {
-    background-color: #343d46;
-}
-
-.button-list button{
-    display: block;
-    width: 100%;
+    background-color: orange;
 }
 .button-list {
     width: 300px;
 }
+    .button-list button{
+        display: block;
+        width: 100%;
+    }
+        .button-list a{
+            transition: transform 1s ease;
+            display: inline-flex;
+            align-items: center;
+            text-align: center !important;
+            width: 98%;
+            text-decoration:none;
+            margin: 3px 3px 0px 3px;
+            height: 60px;
+        }
+        .button-list a:hover{
+            transform: scale(1.1, 1.1);
+        }
+        .button-list a i{
+            padding-bottom: 7px !important; margin-right: 20px
+        }   
+
+
 container{
     height: 100% !important;
 }
 .mat-toolbar{
     text-align: center;
-=======
+}
 
 .profile-picture {
     width: 50px;
     height: 50px;
 }
 
-.search-box {
-    width: 300px;
-    height: 45px;
-    background: transparent !important;
-}
-.search-box input {
-   font-size: 0.8em;
-   border-radius: 10px;
-   outline: none;
-}
-
+/* Spacer helps to align items: Left Right Center */
 .toolbar-spacer {
     flex: 1 1 auto;
 }
 
-.logo {padding-top: 6px;
+.logo {
+    padding-top: 6px;
     width: 100px;
     height: 100px;
+}
+mat-sidenav-content{
+    height: 87vh;
+}
+@media (max-width: 1200px) {
+    mat-sidnav, .button-list {
+        width: 220px !important;
+    }
+    /* .sidenavright{
+        display: none !important;
+    } */
 }

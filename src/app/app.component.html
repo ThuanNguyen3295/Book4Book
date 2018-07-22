@@ -1,59 +1,96 @@
-<div class="">
-    <!-- <ng-container > -->
-        <!-- HEADER BAR -->
-        <mat-toolbar>
+<div class="" >
+    <mat-toolbar>
+        <!-- <button mat-icon-button (click)="test()"><mat-icon>menu</mat-icon></button> -->
+        <!-- <button mat-icon-button (click)="sidenavleft.toggle(); sidenavright.toggle()"><mat-icon>menu</mat-icon></button> -->
 
-            <img src="../assets/images/logo.png" alt="LOGO" class="logo">
+        <button mat-icon-button [matMenuTriggerFor]="sideNavMenu">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <mat-menu #sideNavMenu="matMenu">
+            <ng-template matMenuContent>
+                <button mat-menu-item (click)="sidenavleft.toggle();">
+                    Toggle Left Menu
+                </button>
+                <button mat-menu-item (click)="sidenavright.toggle();">
+                    Toggle Right Menu
+                </button>
+                <button mat-menu-item (click)="sidenavleft.toggle(); sidenavright.toggle()">
+                    Toggle Both
+                </button>
+            </ng-template>
+        </mat-menu>  
 
-            <h1>LOGO HERE</h1>
-            
-            <span class="toolbar-spacer"></span>
-
-            <div class="search-box">
-                <mat-icon>search</mat-icon>
-                <input matInput type="search" placeholder="Search for books...">  
-            </div>              
-            
-            <span class="toolbar-spacer"></span>
-            <img src="http://www.marywood.edu/web/staff/shannon/images/shannonprofile_circle.png" alt="PROFILE PICTURE" class="profile-picture">
-            <button mat-icon-button [matMenuTriggerFor]="userMenu">
-                <mat-icon>more_vert</mat-icon>
-            </button>
-             <!--SUB MENU: User options-->
-            <mat-menu #userMenu="matMenu">
-                <ng-template matMenuContent>
-                    <button mat-menu-item>
-                        <mat-icon>settings</mat-icon>
-                        Settings
-                    </button>
-                    <button mat-menu-item>
-                        <mat-icon>power_settings_new</mat-icon>
-                        Sign out
-                    </button>
-                </ng-template>
-            </mat-menu>          
-        </mat-toolbar>
-      
-        <mat-sidenav-container >
-            <mat-sidenav #sidenav mode="side" opened>
-                <div class="button-list">
-                    <button mat-raised-button>Basic</button>
-                    <button mat-raised-button color="primary">Primary</button>
-                    <button mat-raised-button color="accent">Accent</button>
-                    <button mat-raised-button color="warn">Warn</button>
-                    <button mat-raised-button disabled>Disabled</button>
-                    <a mat-raised-button routerLink="">Link</a>
-                </div>
-            </mat-sidenav>
-            <mat-sidenav-content>
-              <router-outlet>
-              </router-outlet>
-            </mat-sidenav-content>
-        </mat-sidenav-container>
-        <mat-toolbar >
-            <p>All Right Reserved</p>
-        </mat-toolbar>
-      <!-- </ng-container> -->
+        <img src="../assets/images/logo.png" alt="LOGO" class="logo">
+        <div class="app-name">
+            BOOKS 4 BOOKS
+        </div>            
+        <span class="toolbar-spacer"></span>
+        <app-searchbar></app-searchbar>
+        <span class="toolbar-spacer"></span>
+        <button class="sign-in-button" mat-flat-button (click)="goToSignIn()">
+            Sign In
+        </button>
+        <img src="http://www.marywood.edu/web/staff/shannon/images/shannonprofile_circle.png" alt="PROFILE PICTURE" class="profile-picture">
+        <button class="menu-button" mat-icon-button [matMenuTriggerFor]="userMenu">
+            <mat-icon>more_vert</mat-icon>
+        </button>
+            <!--SUB MENU: User options-->
+        <mat-menu #userMenu="matMenu">
+            <ng-template matMenuContent>
+                <button mat-menu-item>
+                    <mat-icon>settings</mat-icon>
+                    Settings
+                </button>
+                <button mat-menu-item>
+                    <mat-icon>power_settings_new</mat-icon>
+                    Sign out
+                </button>
+            </ng-template>
+        </mat-menu>          
+    </mat-toolbar>
+    
+    <mat-sidenav-container >
+        <mat-sidenav #sidenavleft mode="side" opened>
+            <div class="button-list">
+                <a mat-raised-button color="primary" routerLink="">
+                    <i class="material-icons">
+                        home </i>Home</a>
+                <a mat-raised-button color="primary" routerLink="/post">
+                    <i class="material-icons">
+                        create </i>Post</a>
+                <a mat-raised-button color="primary" routerLink="">
+                    <i class="material-icons">
+                        search</i>Search Filter</a>
+                <a mat-raised-button color="primary" routerLink="">
+                    <i class="material-icons">
+                        settings</i>Settings</a>
+                <a mat-raised-button color="primary" routerLink="">
+                    <i class="material-icons">
+                        public</i>About us</a>
+                <a mat-raised-button color="primary" routerLink=""><i class="material-icons">
+                        contact_support</i>Contact us</a>
+            </div>
+        </mat-sidenav>
+        <mat-sidenav-content>
+            <router-outlet>
+            </router-outlet>
+        </mat-sidenav-content>
+        <mat-sidenav #sidenavright class="sidenavright" mode="side" position="end"  opened>
+            <div class="button-list">
+                <button mat-raised-button>Basic</button>
+                <button mat-raised-button color="primary">Primary</button>
+                <button mat-raised-button color="accent">Accent</button>
+                <button mat-raised-button color="warn">Warn</button>
+                <button mat-raised-button disabled>Disabled</button>
+                <a mat-raised-button routerLink="">Link</a>
+            </div>
+        </mat-sidenav>
+    </mat-sidenav-container>
+    <mat-toolbar >
+        <div class="footer" style="width: 100%; text-align:center">
+            <p style="font-size: 0.7em">© 2018 Copyright: Parker Nguyen & Evan Nguyen</p>
+        </div>
+    </mat-toolbar>
 </div>
 
 
