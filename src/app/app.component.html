@@ -17,8 +17,10 @@
                 </div>
             </div>                          
             <span class="toolbar-spacer"></span>
-            <button class="sign-in-button" mat-flat-button *ngIf="isSignIn" (click)="goToSignIn()">Sign In</button>
-            <img src="http://www.marywood.edu/web/staff/shannon/images/shannonprofile_circle.png" alt="PROFILE PICTURE" class="profile-picture" *ngIf="!isSignIn">
+            <div class="sign-in-button">
+                <app-login></app-login>
+            </div>
+            <img src="http://www.marywood.edu/web/staff/shannon/images/shannonprofile_circle.png" alt="PROFILE PICTURE" class="profile-picture">
             <button class="menu-button" mat-icon-button [matMenuTriggerFor]="userMenu">
                 <mat-icon>more_vert</mat-icon>
             </button>

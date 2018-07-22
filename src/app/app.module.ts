@@ -101,6 +101,7 @@ import { PostComponent } from './post/post.component';
 import  {AuthGuard } from './guard/auth.guard';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { LoginComponent } from './login/login.component';
 
 const appRoutes: Routes = [
   {path:'', component: HomeComponent},
@@ -119,7 +120,8 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     HomeComponent,
-    PostComponent
+    PostComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
