@@ -98,3 +98,6 @@ container{
     width: 100px;
     height: 100px;
 }
+mat-sidenav-content{
+    height: 87vh;
+}

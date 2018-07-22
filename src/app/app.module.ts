@@ -2,7 +2,6 @@ import {CdkTableModule} from '@angular/cdk/table';
 import {CdkTreeModule} from '@angular/cdk/tree';
 import {HttpClientModule} from '@angular/common/http';
 import {NgModule} from '@angular/core';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import {
   MatAutocompleteModule,
@@ -98,14 +97,20 @@ import { HomeComponent } from './home/home.component';
 import { AuthService } from '../app/services/auth.service'
 import { RequestService } from '../app/services/request.service'
 import { HttpModule} from '@angular/http';
+import { PostComponent } from './post/post.component';
+import  {AuthGuard } from './guard/auth.guard';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 const appRoutes: Routes = [
-  {path:'', component: HomeComponent}
+  {path:'', component: HomeComponent},
   // {path:'register', component: RegisterComponent},
   // {path:'login', component: LoginComponent},
   // {path:'dashboard', component: DashboardComponent, canActivate:[AuthGuard]},
   // {path:'profile', component: ProfileComponent, canActivate:[AuthGuard]},
-  // {path:'post', component: PostbookComponent, canActivate:[AuthGuard]},
+  // {path:'post', component: PostComponent, canActivate:[AuthGuard]},
+  {path:'post', component: PostComponent},
+
   // {path:'detail/:id', component: DetailPageComponent},
   // {path:'about', component: AboutComponent},
   // {path:'**', component: Error404Component}
@@ -113,7 +118,8 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    PostComponent
   ],
   imports: [
     BrowserModule,
@@ -123,6 +129,7 @@ const appRoutes: Routes = [
     CustomMaterialModule,
     MatNativeDateModule,
     ReactiveFormsModule,
+    MatFormFieldModule,
     RouterModule.forRoot(appRoutes),
     HttpModule
   ],

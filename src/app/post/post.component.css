@@ -1,0 +1,39 @@
+.form{
+    margin-top: 100px;
+    background-color: rgb(228, 248, 255);
+    padding: 20px;
+    box-shadow: 0 0 20px 0 rgba(72,94,116,0.7);  
+}
+mat-form-field{
+    width: 100%;
+    margin: 15px; 
+}
+
+.button-submit button{
+    margin-right: 10px;
+}
+
+.select-image{
+    margin-bottom: 40px;
+}
+
+#file-input {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    z-index: 999;
+}
+.select-image-div{
+    margin-top: 10px;
+    text-align: center;
+}
+.preview {
+    text-align: center;
+}
+.preview img{
+    width:200px;
+    height:260px;
+}
