@@ -1,4 +1,4 @@
-<div class="">
+<div class="" >
     <!-- <ng-container > -->
         <!-- HEADER BAR -->
         <mat-toolbar>
@@ -51,6 +51,16 @@
               <router-outlet>
               </router-outlet>
             </mat-sidenav-content>
+            <mat-sidenav #sidenav mode="side" position="end"  opened>
+                <div class="button-list">
+                    <button mat-raised-button>Basic</button>
+                    <button mat-raised-button color="primary">Primary</button>
+                    <button mat-raised-button color="accent">Accent</button>
+                    <button mat-raised-button color="warn">Warn</button>
+                    <button mat-raised-button disabled>Disabled</button>
+                    <a mat-raised-button routerLink="">Link</a>
+                </div>
+            </mat-sidenav>
         </mat-sidenav-container>
         <mat-toolbar >
             <p>All Right Reserved</p>

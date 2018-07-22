@@ -8,10 +8,15 @@ import {Book} from '../classes/Book'
 })
 export class HomeComponent implements OnInit {
   books: [Book]
+  loading: Boolean
   constructor(private requestService :  RequestService) { }
 
   ngOnInit() {
+    this.loading = true
     this.requestService.getBooks().subscribe(res=>{
+      setTimeout(()=>{
+        this.loading = false
+      }, 4000)
       this.books = res
       var i = 0;
       for ( i = 0; i < this.books.length; i++){

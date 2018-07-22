@@ -1,4 +1,5 @@
-<div class="container">
+<mat-spinner *ngIf="loading"></mat-spinner>
+<div *ngIf="!loading" class="container">
     <div class="form">
       <form (ngSubmit)="onPostNewBook()" [formGroup]="bookFormGroup">
 

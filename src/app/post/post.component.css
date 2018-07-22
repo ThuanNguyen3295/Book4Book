@@ -37,3 +37,9 @@ mat-form-field{
     width:200px;
     height:260px;
 }
+mat-spinner {
+    position: fixed;
+    left: 50%;
+    top: 40%;
+}
+

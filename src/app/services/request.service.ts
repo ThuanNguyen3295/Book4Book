@@ -28,7 +28,7 @@ export class RequestService {
     let headers = new Headers();
     headers.append('Authorization', token);
     // headers.append('Content-Type', 'application/json');
-    return this.http.post('http://localhost:8000/users/post',fd, {headers: headers});
+    return this.http.post('http://localhost:8000/users/post',fd, {headers: headers}).pipe(map(res=>res.json()));
   }
 
   getCachedBooks(){
