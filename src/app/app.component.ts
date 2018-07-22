@@ -17,16 +17,8 @@ export class AppComponent {
   //     top: 0
   //   });
   // }
-
-  isSignIn = true;
-
-
   constructor(){
 
   }
 
-  //PRIVATE FUNCTIONS
-  goToSignIn(){
-    console.log("Called Sign In!")
-  }
 }
