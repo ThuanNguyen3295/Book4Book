@@ -139,6 +139,9 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     HttpModule
   ],
+  entryComponents:[
+    LoginComponent,
+  ],
   providers: [AuthService, RequestService, UtilService],
   bootstrap: [AppComponent]
 })

@@ -2,6 +2,8 @@ import { Component, ViewChild } from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import { MatSidenav} from '@angular/material';
 import { HostListener } from '@angular/core'
+import { LoginComponent } from '../app/login/login.component';
+import { MatDialog } from '@angular/material';
 
 @Component({
   selector: 'app-root',
@@ -10,8 +12,10 @@ import { HostListener } from '@angular/core'
 })
 export class AppComponent {
   title = 'app';
+  //Can you this to passed the confirm or denied, use tooltip
+  dialogResult="";
   @ViewChild('sidenavright') public myNav: MatSidenav;
-  constructor(){
+  constructor(public matDialog: MatDialog){
   }
   @HostListener('window:resize', ['$event'])
   onResize(event) {
@@ -19,5 +23,16 @@ export class AppComponent {
       console.log("toggle rightnav on screen size < 1200")
       this.myNav.toggle()
     }
+  }
+  goToSignIn() {
+    let dialogRef = this.matDialog.open(LoginComponent, {
+      width : '700px',
+      data: 'Hello from DIALOG'
+    });
+    
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('Closeed the Dialog: {result}');
+      this.dialogResult=result;
+    })
   }
 }
