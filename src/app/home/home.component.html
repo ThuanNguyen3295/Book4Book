@@ -8,7 +8,7 @@
               <img *ngIf="book.image" class="book-cover" mat-card-image 
                   src="{{book.image}}" alt="">
               <mat-card-footer>                 
-                <button mat-icon-button>
+                <button mat-icon-button matTooltip="{{book.title}} &#013; {{book.create_date}}"  matTooltipPosition="below" matTooltipClass="tooltip-color">
                    <mat-icon>arrow_right_alt</mat-icon>
                 </button>
               </mat-card-footer>

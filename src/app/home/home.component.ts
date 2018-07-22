@@ -27,6 +27,7 @@ export class HomeComponent implements OnInit{
     this.requestService.getBooks().subscribe(res=>{
       this.books = res
       this.booksPerPage = this.books.slice(0, 8)
+      this.formatDate();
       var i = 0;
       for ( i = 0; i < this.books.length; i++){
         this.getAndSetImage(i)
@@ -69,6 +70,11 @@ export class HomeComponent implements OnInit{
         this.booksPerPage = this.books.slice(0, 8)
       }
     }
+  }
+  formatDate(){
+    this.books.forEach(book => {
+        book.create_date = this.utilService.formatDate(book.create_date);
+      });
   }
 
   getAndSetImage(index){

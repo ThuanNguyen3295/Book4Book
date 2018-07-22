@@ -12,4 +12,11 @@ export class UtilService {
   onSearchValueChange(searchValue: String) {
     this.searchValue.next(searchValue)
   }
+  formatDate(date) {  
+    date = new Date(date);
+    var day = date.getDate();
+    var month = date.getMonth()+1;
+    var year = date.getFullYear();
+    return day + '/' + month+ '/' + year;
+  }
 }
