@@ -15,9 +15,11 @@
           </div>
       </div>
   </div>
-  <mat-paginator [length]="books.length"
-    [pageSize]="4"
-    (page)="pageEvent = getData($event)">
+  <div class="my-paginator">
+    <mat-paginator [length]="books.length"
+    [pageSize]="8"
+    (page)="getData($event)">
     </mat-paginator>
+  </div>
 </div>
 

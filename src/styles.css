@@ -6,8 +6,11 @@ html, body {
     padding: 0;
     margin: 0;
 }
-
+.my-paginator{
+    width: 100%;
+    position: absolute;
+    bottom: 5px;
+}
 .mat-paginator-container{
-    margin-top: 10px; 
     justify-content: center !important;
 }

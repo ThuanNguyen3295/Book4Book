@@ -13,7 +13,6 @@ export class HomeComponent implements OnInit{
   books: [Book]
   booksPerPage: Book[]
   loading: Boolean
-  pageEvent: PageEvent;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   
   constructor(private requestService :  RequestService) { }
@@ -21,11 +20,8 @@ export class HomeComponent implements OnInit{
   ngOnInit() {
     this.loading = true
     this.requestService.getBooks().subscribe(res=>{
-      setTimeout(()=>{
-        this.loading = false
-      }, 4000)
       this.books = res
-      this.booksPerPage = this.books.slice(0, 4)
+      this.booksPerPage = this.books.slice(0, 8)
       var i = 0;
       for ( i = 0; i < this.books.length; i++){
         this.getAndSetImage(i)
@@ -33,21 +29,15 @@ export class HomeComponent implements OnInit{
     })
   }
   getData(page: PageEvent){
-    console.log(event)
     if (page.previousPageIndex == page.pageIndex -1){ //next
-      console.log("next")
       var to = (page.pageIndex+1)*4
-      console.log("to b4 " + to)
       if (to > this.books.length){
         to = this.books.length
-        console.log("to af " + to)
       }
-      this.booksPerPage = this.books.slice((page.previousPageIndex+1)*4, to )
+      this.booksPerPage = this.books.slice((page.previousPageIndex+1)*8, to + 1)
     }
     else { //back
-      console.log(page.pageIndex)
-      console.log(page.previousPageIndex)
-      this.booksPerPage = this.books.slice(page.pageIndex*4, (page.previousPageIndex)*4)
+      this.booksPerPage = this.books.slice(page.pageIndex*8, (page.previousPageIndex)*8)
     }
   }
   loadNextPage(pageEvent: PageEvent){
@@ -63,6 +53,7 @@ export class HomeComponent implements OnInit{
       let reader = new FileReader();
       reader.addEventListener("load", () => {
          this.books[index].image = reader.result;
+         this.loading = false
       }, false);
       if (image) {
          reader.readAsDataURL(image);
