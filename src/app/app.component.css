@@ -101,3 +101,7 @@ container{
 mat-sidenav-content{
     height: 87vh;
 }
+
+.mat-paginator-container{
+    justify-content: flex-start !important;
+}

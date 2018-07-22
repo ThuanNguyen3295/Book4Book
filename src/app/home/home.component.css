@@ -16,8 +16,6 @@
 }
 
 .container {
-    /* margin-left: 20px !important;
-    margin-right: 20px !important;   */
     margin: auto
 }
 mat-card{
@@ -40,4 +38,6 @@ mat-spinner {
     left: 50%;
     top: 40%;
 }
-
+.mat-paginator-container{
+    justify-content: flex-start !important;
+}
