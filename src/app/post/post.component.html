@@ -1,39 +1,76 @@
 <div class="container">
     <div class="form">
-        <mat-form-field hintLabel="Max 30 characters">
-            <input matInput #input maxlength="10" required placeholder="Book Title">
-            <mat-hint align="end">{{input.value?.length || 0}}/10</mat-hint>
-        </mat-form-field>
-        <mat-form-field>
-            <textarea matInput placeholder="Description"></textarea>
-        </mat-form-field>
-        <mat-form-field>
-            <mat-select required placeholder="Genre">
-              <mat-option value="option">Option</mat-option>
-              <mat-option value="option">Option</mat-option>
-              <mat-option value="option">Option</mat-option>
-            </mat-select>
-        </mat-form-field>
-        <mat-form-field>
-            <mat-select  required placeholder="Subject">
-              <mat-option value="option">Option</mat-option>
-              <mat-option value="option">Option</mat-option>
-              <mat-option value="option">Option</mat-option>
-            </mat-select>
-        </mat-form-field>
-        <mat-form-field>
-            <input matInput placeholder="Version">
-        </mat-form-field>
-        <button class="select-image" mat-raised-button color="accent" outline ion-button round> 
-            <i class="material-icons">
-                add_photo_alternate
-            </i>
-            Select Picture
-            <input id="file-input" name="file" type="file" style="opacity: 0" (change)="setSelectedImage($event.target.files)"/>
-        </button>
+      <form (ngSubmit)="onPostNewBook()" [formGroup]="bookFormGroup">
+
+        <div class="row">
+            <div class="col-md-8">
+                <mat-form-field hintLabel="Max 30 characters">
+                    <input formControlName="title" matInput #input maxlength="30" required placeholder="Book Title">
+                    <mat-hint align="end">{{input.value?.length || 0}}/30</mat-hint>
+                </mat-form-field>
+                <mat-form-field>
+                    <textarea formControlName="description" matInput placeholder="Descriptmat"></textarea>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-select formControlName="genre" required placeholder="Genre">
+                      <mat-option value="Science"> Science </mat-option>
+                      <mat-option value="Drama"> Drama </mat-option>
+                      <mat-option value="Horror"> Horror </mat-option>        
+                      <mat-option value="Actmat"> Actmat </mat-option>
+                      <mat-option value="Satire"> Satire </mat-option>
+                      <mat-option value="Romance"> Romance </mat-option>
+                      <mat-option value="Self Help"> Self Help </mat-option>
+                      <mat-option value="Health"> Health </mat-option>
+                      <mat-option value="Travel"> Travel </mat-option>
+                      <mat-option value="History"> History </mat-option>
+                      <mat-option value="Comics"> Comics </mat-option>
+                      <mat-option value="Art"> Art </mat-option>
+                      <mat-option value="Journals"> Journals </mat-option>
+                      <mat-option value="Anime"> Anime </mat-option>
+                      <mat-option value="Anthology"> Anthology </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-select formControlName="subject"  required placeholder="Subject">
+                      <mat-option value="None">None</mat-option>
+                      <mat-option value="Math"> Math </mat-option>
+                      <mat-option value="English"> English </mat-option>
+                      <mat-option value="Chemistry"> Chemistry </mat-option>        
+                      <mat-option value="Physics"> Physics </mat-option>
+                      <mat-option value="Art"> Art </mat-option>
+                      <mat-option value="Music"> Music </mat-option>
+                      <mat-option value="History"> History </mat-option>
+                      <mat-option value="Psychology"> Psychology </mat-option>
+                      <mat-option value="Literature"> Literature </mat-option>
+                      <mat-option value="Foreign Language"> Foreign Language </mat-option>
+                      <mat-option value="Biology"> Biology </mat-option>
+                      <mat-option value="Social Study"> Social Study </mat-option> 
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field>
+                    <input formControlName="version" matInput placeholder="Version">
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <div class="select-image-div">
+                    <button class="select-image" mat-raised-button color="accent" outline mat-button round> 
+                        <i class="material-icons">
+                            add_photo_alternate
+                        </i>
+                        Select Picture
+                        <input id="file-input" name="file" type="file" style="opacity: 0" (change)="setSelectedImage($event.target.files)"/>
+                    </button>
+                </div>
+                <div class="preview">
+                    <img *ngIf="!selectedImagePreview" src="http://librosebooks.org/img/xggS:XXBBB.wVSVg87.81vXaEui7X2nttXnPXwVSVg8-iqWVfi-I-gVWq-VvjfV.fSv.png" alt="">
+                    <img *ngIf="selectedImagePreview" src="{{selectedImagePreview}}"  alt="">
+                </div>
+            </div>
+        </div>
         <div class="button-submit">
-            <button mat-raised-button color="primary">Post</button>
+            <button mat-raised-button type="submit" color="primary" [disabled]="!bookFormGroup.valid ">Post</button>
             <button mat-raised-button>Cancel</button>
         </div>
-      </div>
+      </form>  
+    </div>
 </div>
