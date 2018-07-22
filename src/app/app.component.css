@@ -2,14 +2,31 @@
 mat-toolbar {
     background-color: orange;
 }
-
-.button-list button{
-    display: block;
-    width: 100%;
-}
 .button-list {
     width: 300px;
 }
+    .button-list button{
+        display: block;
+        width: 100%;
+    }
+        .button-list a{
+            transition: transform 1s ease;
+            display: inline-flex;
+            align-items: center;
+            text-align: center !important;
+            width: 98%;
+            text-decoration:none;
+            margin: 3px 3px 0px 3px;
+            height: 60px;
+        }
+        .button-list a:hover{
+            transform: scale(1.1, 1.1);
+        }
+        .button-list a i{
+            padding-bottom: 7px !important; margin-right: 20px
+        }   
+
+
 container{
     height: 100% !important;
 }
@@ -20,78 +37,6 @@ container{
 .profile-picture {
     width: 50px;
     height: 50px;
-}
-/* START SEARCH BOX */
-.search-box {
-    width: 500px;
-    height: 40px;
-}
-
-    .search-container{
-        overflow: hidden;
-        width: 100%;
-        vertical-align: middle;
-        white-space: nowrap;
-    }
-
-        .search-container input{
-            width: 100%;
-            height: 40px;
-            background: white;
-            border: none;
-            font-size: 12pt;
-            float: left;
-            color: black;
-            padding-left: 15px;
-            border-radius: 5px;
-            outline: none;
-        }
-
-        .search-container .search-icon {
-            /* DONT SCREW WITH THE NEXT 4 LINES */
-            border-top-right-radius: 5px;
-            border-bottom-right-radius: 5px; 
-            border-top-left-radius: 0px;
-            border-bottom-left-radius: 0px;
-                      
-            border: none;
-            background: #2667df;
-            height: 40px;
-            width: 40px;
-            color: white;
-            opacity: 1;
-            font-size: 10pt;
-            transition: all .6s ease-in-out;
-        }
-
-        .search-container:hover button, .search-container:active button .search-container:focus button{
-            outline: none;
-            opacity: 1;
-            margin-left: -40px;
-        }
-        
-        @media only screen and (max-width : 500px)
-        {
-	        .search-box
-	        {
-            width: 70%;
-            height: auto;
-            margin: 0 auto;
-	        }
-        }       
-/* END SEARCH BOX */
-
-/* Make the TOOL BAR RESPONSIVE: Don't display logo, profile picture, and app's name */
-@media screen and (max-width: 500px) {
-    .logo, .profile-picture, .app-name, .sign-in-button{
-        display: none;
-    }
-}
-
-@media screen and (max-width: 600px) {
-    .app-name, .sign-in-button{
-        display: none;
-    }
 }
 
 /* Spacer helps to align items: Left Right Center */
@@ -106,8 +51,4 @@ container{
 }
 mat-sidenav-content{
     height: 87vh;
-}
-
-.mat-paginator-container{
-    justify-content: flex-start !important;
 }

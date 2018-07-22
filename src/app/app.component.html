@@ -8,14 +8,15 @@
                 BOOKS 4 BOOKS
             </div>            
             <span class="toolbar-spacer"></span>
-            <div class="search-box">
+            <app-searchbar></app-searchbar>
+            <!-- <div class="search-box">
                 <div class="search-container">
                     <input type="search" placeholder="Search for books...">
                     <button mat-icon-button class="search-icon" >
                         <mat-icon>search</mat-icon>
                     </button>
                 </div>
-            </div>                          
+            </div>-->
             <span class="toolbar-spacer"></span>
             <button class="sign-in-button" mat-flat-button *ngIf="isSignIn" (click)="goToSignIn()">Sign In</button>
             <img src="http://www.marywood.edu/web/staff/shannon/images/shannonprofile_circle.png" alt="PROFILE PICTURE" class="profile-picture" *ngIf="!isSignIn">
@@ -40,12 +41,23 @@
         <mat-sidenav-container >
             <mat-sidenav #sidenav mode="side" opened>
                 <div class="button-list">
-                    <button mat-raised-button>Basic</button>
-                    <button mat-raised-button color="primary">Primary</button>
-                    <button mat-raised-button color="accent">Accent</button>
-                    <button mat-raised-button color="warn">Warn</button>
-                    <button mat-raised-button disabled>Disabled</button>
-                    <a mat-raised-button routerLink="">Link</a>
+                    <a mat-raised-button color="primary" routerLink="">
+                        <i class="material-icons">
+                            home </i>Home</a>
+                    <a mat-raised-button color="primary" routerLink="/post">
+                        <i class="material-icons">
+                            create </i>Post</a>
+                    <a mat-raised-button color="primary" routerLink="">
+                        <i class="material-icons">
+                            search</i>Search Filter</a>
+                    <a mat-raised-button color="primary" routerLink="">
+                        <i class="material-icons">
+                            settings</i>Settings</a>
+                    <a mat-raised-button color="primary" routerLink="">
+                        <i class="material-icons">
+                            public</i>About us</a>
+                    <a mat-raised-button color="primary" routerLink=""><i class="material-icons">
+                            contact_support</i>Contact us</a>
                 </div>
             </mat-sidenav>
             <mat-sidenav-content>
@@ -64,7 +76,9 @@
             </mat-sidenav>
         </mat-sidenav-container>
         <mat-toolbar >
-            <p>All Right Reserved</p>
+            <div class="footer" style="width: 100%; text-align:center">
+                <p style="font-size: 0.7em">© 2018 Copyright: Parker Nguyen & Evan Nguyen</p>
+            </div>
         </mat-toolbar>
       <!-- </ng-container> -->
 </div>

@@ -8,7 +8,7 @@ import { map } from "rxjs/operators";
   providedIn: 'root'
 })
 export class RequestService {
-  private cachedBooks: any[];
+  private cachedBooks: Book[];
   constructor(private http: Http, private authService: AuthService) { }
 
   getBooks(){
@@ -35,7 +35,7 @@ export class RequestService {
     return this.cachedBooks
   }
 
-  setCachedBooks(books){
+  setCachedBooks(books: Book[]){
    this.cachedBooks = books 
   }
 }

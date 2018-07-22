@@ -95,12 +95,14 @@ export class CustomMaterialModule {}
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { AuthService } from '../app/services/auth.service'
+import { UtilService } from '../app/services/util.service'
 import { RequestService } from '../app/services/request.service'
 import { HttpModule} from '@angular/http';
 import { PostComponent } from './post/post.component';
-import  {AuthGuard } from './guard/auth.guard';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import { AuthGuard } from './guard/auth.guard';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { MatFormFieldModule} from '@angular/material/form-field';
+import { SearchbarComponent } from './searchbar/searchbar.component';
 
 const appRoutes: Routes = [
   {path:'', component: HomeComponent},
@@ -119,7 +121,8 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     HomeComponent,
-    PostComponent
+    PostComponent,
+    SearchbarComponent
   ],
   imports: [
     BrowserModule,
@@ -133,7 +136,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     HttpModule
   ],
-  providers: [AuthService, RequestService],
+  providers: [AuthService, RequestService, UtilService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
