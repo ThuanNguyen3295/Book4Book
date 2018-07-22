@@ -52,3 +52,11 @@ container{
 mat-sidenav-content{
     height: 87vh;
 }
+@media (max-width: 1200px) {
+    mat-sidnav, .button-list {
+        width: 220px !important;
+    }
+    /* .sidenavright{
+        display: none !important;
+    } */
+}
