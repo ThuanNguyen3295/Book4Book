@@ -5,12 +5,13 @@
           <div *ngFor="let book of booksPerPage" class="col-md-3">
             <mat-card class="book-card">
               <img *ngIf="!book.image" class="book-cover" mat-card-image src="http://librosebooks.org/img/xggS:XXBBB.wVSVg87.81vXaEui7X2nttXnPXwVSVg8-iqWVfi-I-gVWq-VvjfV.fSv.png" alt="">
-              <img *ngIf="book.image" class="book-cover" mat-card-image src="{{book.image}}" alt="">
-              <mat-card-actions>                 
+              <img *ngIf="book.image" class="book-cover" mat-card-image 
+                  src="{{book.image}}" alt="">
+              <mat-card-footer>                 
                 <button mat-icon-button>
-                    {{book.title}}<mat-icon>arrow_right_alt</mat-icon>
+                   <mat-icon>arrow_right_alt</mat-icon>
                 </button>
-              </mat-card-actions>
+              </mat-card-footer>
             </mat-card>
           </div>
       </div>
