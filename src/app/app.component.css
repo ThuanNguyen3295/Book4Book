@@ -83,7 +83,13 @@ container{
 
 /* Make the TOOL BAR RESPONSIVE: Don't display logo, profile picture, and app's name */
 @media screen and (max-width: 500px) {
-    .logo, .profile-picture, .app-name{
+    .logo, .profile-picture, .app-name, .sign-in-button{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .app-name, .sign-in-button{
         display: none;
     }
 }
@@ -101,3 +107,4 @@ container{
 mat-sidenav-content{
     height: 87vh;
 }
+
