@@ -1,19 +1,26 @@
-<div>
-    <!-- HEADER -->
-    <div>
+<div class="login-dialog">
+    <mat-card class="login-container">
+        <mat-card-actions class="button-navigate">
+            <button class="button-navigate-login" mat-flat-button>Sign In</button>
+            <span class="mat-card-spacer"></span>
+            <button class="button-navigate-register" mat-flat-button>Register</button>
+        </mat-card-actions>
 
-    </div>>
+        <mat-card-content>
+            <form class="form-login">
+                <mat-form-field class="form-field">
+                    <input matInput placeholder="Username" type="text">
+                </mat-form-field>
+                <mat-form-field class="form-field">
+                    <input matInput placeholder="Password" type="password">
+                </mat-form-field>
+            </form>
+        </mat-card-content>
 
-
-    <!-- BUTTONS -->
-    <div>
-        <button>Confirm</button>
-        <button>Cancel</button>
-    </div>
-    
-    <!-- SOCIAL MEDIA CONNECT -->
-    <div>
-        
-    </div>
+        <mat-card-footer class="button-navigate">
+            <button class="button-navigate-submit" mat-flat-button>Submit</button>
+            <span class="mat-card-spacer"></span>
+            <button class="button-navigate-cancel" mat-flat-button>Cancel</button>
+        </mat-card-footer>
+</mat-card>
 </div>
-

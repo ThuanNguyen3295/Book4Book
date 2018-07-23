@@ -60,3 +60,16 @@ mat-sidenav-content{
         display: none !important;
     } */
 }
+
+@media screen and (max-width: 800px){
+     .app-name, .sign-in-button, .logo , .profile-picture{
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 1200px){
+    .search-box {
+        display: flex;
+        width: 70%;
+    }    
+}

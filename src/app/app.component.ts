@@ -15,8 +15,11 @@ export class AppComponent {
   //Can you this to passed the confirm or denied, use tooltip
   dialogResult="";
   @ViewChild('sidenavright') public myNav: MatSidenav;
-  constructor(public matDialog: MatDialog){
-  }
+
+  constructor(
+    public matDialog: MatDialog,
+  ){}
+
   @HostListener('window:resize', ['$event'])
   onResize(event) {
     if (this.myNav != null && window.screen.width < 1200 ){
@@ -24,10 +27,11 @@ export class AppComponent {
       this.myNav.toggle()
     }
   }
+
   goToSignIn() {
     let dialogRef = this.matDialog.open(LoginComponent, {
-      width : '700px',
-      data: 'Hello from DIALOG'
+      width : 'auto',
+      data: 'Hello from DIALOG',
     });
     
     dialogRef.afterClosed().subscribe(result => {
