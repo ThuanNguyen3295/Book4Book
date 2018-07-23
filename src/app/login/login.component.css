@@ -26,17 +26,18 @@ mat-card {
         border-radius: 0px !important;   
         background-image: linear-gradient(to right, #314755 0%, #26a0da 51%, #314755 100%);
     }
-
+        /* THIS IS THE RIBBON */
         .button-navigate-login::before {
             content: "";
             position: absolute;
             left: 0;
             bottom: -16px;
             border-left: 8px solid transparent;
-            border-right: 8px solid #314755;
-            border-top: 8px solid #314755;
+            border-right: 8px solid #3CD3AD;
+            border-top: 8px solid #3CD3AD;
             border-bottom: 8px solid transparent;
         }
+        /* THIS IS THE RIBBON */
         .button-navigate-login::after {
             content: "";
             position: absolute;
@@ -47,17 +48,18 @@ mat-card {
             border-top: 25px solid transparent;
             border-bottom: 25px solid transparent;
         }
-
+        /* THIS IS THE RIBBON */
         .button-navigate-register::before {
             content: "";
             position: absolute;
             right: 0;
             bottom: -16px;
-            border-left: 8px solid #314755;
+            border-left: 8px solid #3CD3AD;
             border-right: 8px solid transparent;
-            border-top: 8px solid #314755;
+            border-top: 8px solid #3CD3AD;
             border-bottom: 8px solid transparent;
         }
+        /* THIS IS THE RIBBON */
         .button-navigate-register::after {
             content: "";
             position: absolute;
