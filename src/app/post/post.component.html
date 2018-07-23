@@ -10,7 +10,7 @@
                     <mat-hint align="end">{{input.value?.length || 0}}/30</mat-hint>
                 </mat-form-field>
                 <mat-form-field>
-                    <textarea formControlName="description" matInput placeholder="Descriptmat"></textarea>
+                    <textarea formControlName="description" matInput placeholder="Description"></textarea>
                 </mat-form-field>
                 <mat-form-field>
                     <mat-select formControlName="genre" required placeholder="Genre">
@@ -70,7 +70,8 @@
         </div>
         <div class="button-submit">
             <button mat-raised-button type="submit" color="primary" [disabled]="!bookFormGroup.valid ">Post</button>
-            <button mat-raised-button>Cancel</button>
+            <!-- <button mat-raised-button>Cancel</button> -->
+            <a mat-raised-button style="text-decoration: none" routerLink="">Cancel</a>
         </div>
       </form>  
     </div>
