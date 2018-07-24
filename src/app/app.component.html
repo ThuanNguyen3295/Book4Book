@@ -1,12 +1,12 @@
 <div class="app-page" >
     <mat-toolbar>
         <!-- <button mat-icon-button (click)="test()"><mat-icon>menu</mat-icon></button> -->
-        <!-- <button mat-icon-button (click)="sidenavleft.toggle(); sidenavright.toggle()"><mat-icon>menu</mat-icon></button> -->
+        <button mat-icon-button (click)="sidenavleft.toggle()"><mat-icon>menu</mat-icon></button>
 
-        <button mat-icon-button [matMenuTriggerFor]="sideNavMenu">
+        <!-- <button mat-icon-button [matMenuTriggerFor]="sideNavMenu">
             <mat-icon>menu</mat-icon>
-        </button>
-        <mat-menu #sideNavMenu="matMenu">
+        </button> -->
+        <!-- <mat-menu #sideNavMenu="matMenu">
             <ng-template matMenuContent>
                 <button mat-menu-item (click)="sidenavleft.toggle();">
                     Toggle Left Menu
@@ -18,7 +18,7 @@
                     Toggle Both
                 </button>
             </ng-template>
-        </mat-menu>  
+        </mat-menu>   -->
         <img src="../assets/images/logo.png" alt="LOGO" class="logo">
         <div class="app-name">
             BOOKS 4 BOOKS
@@ -77,7 +77,7 @@
             <router-outlet>
             </router-outlet>
         </mat-sidenav-content>
-        <mat-sidenav #sidenavright class="sidenavright" mode="side" position="end"  opened>
+        <!-- <mat-sidenav #sidenavright class="sidenavright" mode="side" position="end"  opened>
             <div class="button-list">
                 <button mat-raised-button>Basic</button>
                 <button mat-raised-button color="primary">Primary</button>
@@ -86,7 +86,7 @@
                 <button mat-raised-button disabled>Disabled</button>
                 <a mat-raised-button routerLink="">Link</a>
             </div>
-        </mat-sidenav>
+        </mat-sidenav> -->
     </mat-sidenav-container>
     <mat-toolbar >
         <div class="footer" style="width: 100%; text-align:center">

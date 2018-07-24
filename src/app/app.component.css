@@ -53,7 +53,10 @@ container{
 mat-sidenav-content{
     height: 87vh;
 }
-@media (max-width: 1200px) {
+mat-sidenav{
+    overflow: hidden;
+}
+@media (max-width: 1400px) {
     mat-sidnav, .button-list {
         width: 220px !important;
     }

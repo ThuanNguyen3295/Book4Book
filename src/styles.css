@@ -8,8 +8,9 @@ html, body {
 }
 .my-paginator{
     width: 100%;
-    position: absolute;
-    bottom: 5px;
+    position: fixed;
+    bottom: 65px;
+    /* background-co: none; */
 }
 .mat-paginator-container{
     justify-content: center !important;

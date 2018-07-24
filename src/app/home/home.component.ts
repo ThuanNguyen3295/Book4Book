@@ -5,6 +5,9 @@ import { PageEvent } from '@angular/material';
 import { MatPaginator } from '@angular/material/paginator';
 import { tap } from 'rxjs/operators';
 import { UtilService } from '../services/util.service'
+import {MatSnackBar} from '@angular/material';
+
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -15,18 +18,22 @@ export class HomeComponent implements OnInit{
   booksPerPage: Book[]
   loading: Boolean
   searchValue: String;
+  numPerPage: number
+
   @ViewChild(MatPaginator) paginator: MatPaginator;
   
-  constructor(private requestService :  RequestService, private utilService: UtilService) { }
+  constructor(private requestService :  RequestService,
+              private utilService: UtilService,
+              private snackBar: MatSnackBar) { }
 
   ngOnInit() {
     //binding the searchValue as obserable from util service, it will listen on value changes
     this.utilService.currentSerchValue.subscribe(searchValue => this.onSearch(searchValue));
-    
     this.loading = true
+    this.numPerPage = 10
     this.requestService.getBooks().subscribe(res=>{
       this.books = res
-      this.booksPerPage = this.books.slice(0, 8)
+      this.booksPerPage = this.books.slice(0, this.numPerPage)
       this.formatDate();
       var i = 0;
       for ( i = 0; i < this.books.length; i++){
@@ -38,21 +45,21 @@ export class HomeComponent implements OnInit{
   }
   getData(page: PageEvent){
     if (page.previousPageIndex == page.pageIndex -1){ //next
-      var to = (page.pageIndex+1)*4
+      var to = (page.pageIndex+1)*this.numPerPage
       if (to > this.books.length){
         to = this.books.length
       }
-      this.booksPerPage = this.books.slice((page.previousPageIndex+1)*8, to + 1)
+      this.booksPerPage = this.books.slice((page.previousPageIndex+1)*this.numPerPage, to + 1)
     }
     else { //back
-      this.booksPerPage = this.books.slice(page.pageIndex*8, (page.previousPageIndex)*8)
+      this.booksPerPage = this.books.slice(page.pageIndex*this.numPerPage, (page.previousPageIndex)*this.numPerPage)
     }
   }
 
   onSearch(searchValue){
     this.loading = true
     if(!searchValue && this.books != null){
-      this.booksPerPage = this.books.slice(0, 8)
+      this.booksPerPage = this.books.slice(0, this.numPerPage)
       this.loading = false
       return;
     }
@@ -60,14 +67,14 @@ export class HomeComponent implements OnInit{
       this.books = this.requestService.getCachedBooks();
 
       if (searchValue && searchValue.trim() != '') {
-        //TODO possible issue when the result of filter is > 8
+        //TODO possible issue when the result of filter is > this.numPerPage
         this.booksPerPage = this.books.filter((item) => {
           this.loading = false
           return (item.title.toLowerCase().indexOf(searchValue.toLowerCase()) > -1);
-        }).slice(0,8)
+        }).slice(0,this.numPerPage)
       }else {
         this.loading = false
-        this.booksPerPage = this.books.slice(0, 8)
+        this.booksPerPage = this.books.slice(0, this.numPerPage)
       }
     }
   }

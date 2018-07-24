@@ -1,5 +1,6 @@
 .full{
-    height: 86vh;
+    /* height: 86vh; */
+    height: 100%;
     background:linear-gradient(
         rgba(214, 234, 248, 0.95),
         rgba(233, 228, 255, 0.6)           
@@ -8,17 +9,24 @@
     left: 0;
     right: 0;
     bottom: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    flex-flow: row wrap;
+    justify-content: space-around ;
+    padding: 40px;
 }
 
-.book-card {
-    max-width: 80%;
-    margin-top: 20px;
+.book-cover {
+    height: 280px !important;
+    width: 200px;
+}
+.card-div {
+    margin-bottom: 20px; 
 }
 
 mat-card{
     margin: auto;
-    /* fix margin bottom somehow */
-    margin-bottom: 40px;
     text-align: center !important;
     transition: transform 0.5s ease !important;
 }
@@ -27,7 +35,7 @@ mat-card .mat-card-image{
 }
 
 mat-card:hover {
-    transform: scale(1.1, 1.1) !important;
+    transform: scale(1.1, 1.05) !important;
 }
 mat-card button{
     margin: 3px 0 3px 0; 
@@ -39,10 +47,10 @@ mat-card:hover button{
     background-color: orange;
 }
 
-.book-cover{
+/* .book-cover{
     object-fit: cover;
-    height: 270px !important;
-}
+    height: 280px;
+} */
 mat-card-content{
     height: 10px !important;
     margin-bottom: 0 !important; 
@@ -55,10 +63,15 @@ mat-spinner {
     left: 50%;
     top: 40%;
 }
+/* mat-grid-list{
+    width: 100%;
+} */
 
-.tooltip-color {
-    background: #b71c1c !important;
-}
-.mat-tooltip {
-    white-space: pre-line !important;
+@media screen and (max-height: 800px){
+    /* .book-cover{
+        width: 160px;
+    } */
+    /* .book-cover {
+        width: 180px;
+    } */
 }

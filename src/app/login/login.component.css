@@ -9,7 +9,7 @@ mat-card {
     height: auto;
     padding: 0px;
     /* background-image: linear-gradient(to right, #4CB8C4 0%, #3CD3AD 51%, #4CB8C4 100%); */
-    background-image: linear-gradient(to right, rgb(240, 177, 89) 0%, rgb(245, 237, 168) 51%, rgb(240, 177, 89) 100%)
+    /* background-image: linear-gradient(to right, rgb(255, 231, 197) 0%, rgb(245, 237, 168) 51%, rgb(240, 177, 89) 100%) */
 }
 
 

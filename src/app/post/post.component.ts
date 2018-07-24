@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 import { RequestService } from '../services/request.service'
 import {Router} from '@angular/router';
+import {MatSnackBar} from '@angular/material';
 
 @Component({
   selector: 'app-post',
@@ -22,7 +23,8 @@ export class PostComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder,
               private requestService: RequestService,
-              private router: Router        
+              private router: Router,
+              private snackBar: MatSnackBar        
   ) {
 
     this.bookFormGroup = this.formBuilder.group({
@@ -70,6 +72,9 @@ export class PostComponent implements OnInit {
       console.log("Response is ="+res)
       if (res['success']){
         this.router.navigate(['']);
+        this.snackBar.open("Thank you! Your book has been added", null, {
+          duration: 2000,
+        });
       }
       else {
         //TODO show dialog for error message
