@@ -3,22 +3,6 @@
         <!-- <button mat-icon-button (click)="test()"><mat-icon>menu</mat-icon></button> -->
         <button mat-icon-button (click)="sidenavleft.toggle()"><mat-icon>menu</mat-icon></button>
 
-        <!-- <button mat-icon-button [matMenuTriggerFor]="sideNavMenu">
-            <mat-icon>menu</mat-icon>
-        </button> -->
-        <!-- <mat-menu #sideNavMenu="matMenu">
-            <ng-template matMenuContent>
-                <button mat-menu-item (click)="sidenavleft.toggle();">
-                    Toggle Left Menu
-                </button>
-                <button mat-menu-item (click)="sidenavright.toggle();">
-                    Toggle Right Menu
-                </button>
-                <button mat-menu-item (click)="sidenavleft.toggle(); sidenavright.toggle()">
-                    Toggle Both
-                </button>
-            </ng-template>
-        </mat-menu>   -->
         <img src="../assets/images/logo.png" alt="LOGO" class="logo">
         <div class="app-name">
             BOOKS 4 BOOKS
@@ -26,11 +10,11 @@
         <span class="toolbar-spacer"></span>           
         <app-searchbar class="search-box"></app-searchbar>
         <span class="toolbar-spacer"></span>
-        <button class="sign-in-button" mat-flat-button (click)="goToSignIn()">
+        <button *ngIf="!isLoggedIn()" class="sign-in-button" mat-flat-button (click)="goToSignIn()">
             Sign In
         </button>
-        <img src="http://www.marywood.edu/web/staff/shannon/images/shannonprofile_circle.png" alt="PROFILE PICTURE" class="profile-picture">
-        <button class="menu-button" mat-icon-button [matMenuTriggerFor]="userMenu">
+        <img *ngIf="isLoggedIn()" src="http://www.marywood.edu/web/staff/shannon/images/shannonprofile_circle.png" alt="PROFILE PICTURE" class="profile-picture">
+        <button *ngIf="isLoggedIn()" class="menu-button" mat-icon-button [matMenuTriggerFor]="userMenu">
             <mat-icon>more_vert</mat-icon>
         </button>
             <!--SUB MENU: User options-->
@@ -40,7 +24,7 @@
                     <mat-icon>settings</mat-icon>
                     Settings
                 </button>
-                <button mat-menu-item>
+                <button mat-menu-item (click)="logout()">
                     <mat-icon>power_settings_new</mat-icon>
                     Sign out
                 </button>

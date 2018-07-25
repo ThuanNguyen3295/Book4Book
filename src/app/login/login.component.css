@@ -96,3 +96,8 @@ mat-card {
 .mat-dialog-container {
     background: transparent !important;
 }
+mat-spinner {
+    position: fixed;
+    left: 50%;
+    top: 40%;
+}

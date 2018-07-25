@@ -1,3 +1,4 @@
+<mat-spinner *ngIf="loading"></mat-spinner>
 <div class="login-dialog">
     <mat-card class="login-container">
         <mat-card-actions class="button-navigate">
@@ -7,20 +8,20 @@
         </mat-card-actions>
 
         <mat-card-content>
-            <form class="form-login">
+            <form class="form-login" [formGroup]="userCredentials">
                 <mat-form-field class="form-field">
-                    <input matInput placeholder="Username" type="text">
+                    <input matInput required formControlName="username" placeholder="Username" type="text">
                 </mat-form-field>
                 <mat-form-field class="form-field">
-                    <input matInput placeholder="Password" type="password">
+                    <input matInput required formControlName="password" placeholder="Password" type="password">
                 </mat-form-field>
             </form>
         </mat-card-content>
 
         <mat-card-footer class="button-navigate">
-            <button class="button-navigate-submit" mat-flat-button>Submit</button>
+            <button class="button-navigate-submit" [disabled]="!(userCredentials.controls.username.valid && userCredentials.controls.password.valid)" (click)="onCloseConfirm()" mat-flat-button>Submit</button>
             <span class="mat-card-spacer"></span>
-            <button class="button-navigate-cancel" mat-flat-button>Cancel</button>
+            <button class="button-navigate-cancel" (click)="onCloseCancel()" mat-flat-button>Cancel</button>
         </mat-card-footer>
 </mat-card>
 </div>

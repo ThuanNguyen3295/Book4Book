@@ -2,8 +2,10 @@
     margin-top: 100px;
     background-color: rgb(228, 248, 255);
     padding: 20px;
-    box-shadow: 0 0 20px 0 rgba(72,94,116,0.7);  
+    box-shadow: 0 0 20px 0 rgba(72,94,116,0.7);
+    width: 80%;  
 }
+
 mat-form-field{
     width: 100%;
     margin: 15px; 
