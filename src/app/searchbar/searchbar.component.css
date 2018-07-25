@@ -46,4 +46,9 @@
             margin-left: -50px;
         } 
 
-
+@media screen and (max-width: 1200px){
+    .search-box {
+        width: 250px;
+        height: 30px;
+    }
+}

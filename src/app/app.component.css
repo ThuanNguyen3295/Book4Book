@@ -2,6 +2,7 @@
 mat-toolbar {
     background-color: orange;
 }
+
 .button-list {
     width: 300px;
 }
@@ -51,7 +52,7 @@ container{
     height: 100px;
 }
 mat-sidenav-content{
-    height: 87vh;
+    height: 86.7vh;
 }
 mat-sidenav{
     overflow: hidden;
@@ -60,14 +61,14 @@ mat-sidenav{
     mat-sidnav, .button-list {
         width: 220px !important;
     }
-    /* .sidenavright{
-        display: none !important;
-    } */
 }
 
 @media screen and (max-width: 800px){
      .app-name, .sign-in-button, .logo , .profile-picture{
         display: none;
+    }
+    mat-sidnav, .button-list {
+        width: 180px !important;
     }
 }
 

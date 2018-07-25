@@ -1,6 +1,7 @@
 .full{
     /* height: 86vh; */
-    height: 100%;
+    /* height: 100%; */
+    min-height: 86.7vh;
     background:linear-gradient(
         rgba(214, 234, 248, 0.95),
         rgba(233, 228, 255, 0.6)           
@@ -10,19 +11,20 @@
     right: 0;
     bottom: 0;
     display: flex;
-    flex-wrap: wrap;
-    align-content: flex-start;
     flex-flow: row wrap;
-    justify-content: space-around ;
-    padding: 40px;
+    /* justify-content: space-around ;  */
+    justify-content: flex-start;
+    padding: 20px;
+}
+
+.card-div {
+    margin-left: 50px;
+    margin-bottom: 20px;  
 }
 
 .book-cover {
     height: 280px !important;
     width: 200px;
-}
-.card-div {
-    margin-bottom: 20px; 
 }
 
 mat-card{
@@ -47,10 +49,6 @@ mat-card:hover button{
     background-color: orange;
 }
 
-/* .book-cover{
-    object-fit: cover;
-    height: 280px;
-} */
 mat-card-content{
     height: 10px !important;
     margin-bottom: 0 !important; 
@@ -63,15 +61,75 @@ mat-spinner {
     left: 50%;
     top: 40%;
 }
-/* mat-grid-list{
-    width: 100%;
-} */
 
-@media screen and (max-height: 800px){
-    /* .book-cover{
-        width: 160px;
-    } */
-    /* .book-cover {
-        width: 180px;
-    } */
+@media screen and (max-width: 414px){
+    .full {
+        justify-content: flex-start ; 
+        padding: 0;
+    }
+    .card-div {
+        margin-left: 20px;
+        margin-bottom: 10px;  
+    }
+    .book-cover {
+        height: 160px !important;
+        width: 120px;
+    }
+}
+
+@media screen and (max-width: 768px){
+    .full {
+        justify-content: flex-start ; 
+    }
+    .card-div {
+        margin-left: 30px;
+        margin-bottom: 20px;  
+    }
+    .book-cover {
+        height: 180px !important;
+        width: 140px;
+    }
+}
+
+
+@media screen and (min-width: 1024px){
+    .full {
+        justify-content: flex-start ; 
+    }
+    .card-div {
+        margin-left: 20px;
+        margin-bottom: 20px;  
+    }
+    .book-cover {
+        height: 220px !important;
+        width: 170px;
+    }
+}
+
+@media (min-width: 1024px){
+    .full {
+        justify-content: flex-start; 
+    }
+    .card-div {
+        margin-left: 20px;
+        margin-bottom: 20px;  
+    }
+    .book-cover {
+        height: 220px !important;
+        width: 170px;
+    }
+}
+
+@media (min-width: 1440px){
+    .full {
+        justify-content: flex-start; 
+    }
+    .card-div {
+        margin-left: 50px;
+        margin-bottom: 20px;  
+    }
+    .book-cover {
+        height: 280px !important;
+        width: 210px;
+    }
 }

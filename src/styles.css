@@ -6,12 +6,11 @@ html, body {
     padding: 0;
     margin: 0;
 }
-.my-paginator{
+/* .my-paginator{
     width: 100%;
     position: fixed;
     bottom: 65px;
-    /* background-co: none; */
 }
 .mat-paginator-container{
     justify-content: center !important;
-}
+} */
