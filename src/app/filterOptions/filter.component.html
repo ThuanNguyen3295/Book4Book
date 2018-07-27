@@ -1,0 +1,44 @@
+<div mat-dialog-content>
+    <div class="filter-main">
+        <mat-tab-group>
+                <mat-tab label="Genre">
+                    <mat-selection-list >
+                        <div class="selection-div" >
+                            <mat-list-option> 1 </mat-list-option>
+                            <mat-list-option> 2 </mat-list-option>
+                            <mat-list-option> 3 </mat-list-option>                       
+                            <mat-list-option> 4 </mat-list-option>
+                            <mat-list-option> 5 </mat-list-option>                        
+                            <mat-list-option> 6 </mat-list-option>
+                        </div>
+                    </mat-selection-list>
+                </mat-tab>
+                <mat-tab label="Subject">
+                    <mat-selection-list >
+                        <div class="selection-div" >
+                            <mat-list-option> 1 </mat-list-option>
+                            <mat-list-option> 2 </mat-list-option>
+                            <mat-list-option> 3 </mat-list-option>                       
+                            <mat-list-option> 4 </mat-list-option>
+                            <mat-list-option> 5 </mat-list-option>                        
+                            <mat-list-option> 6 </mat-list-option>
+                        </div>
+                    </mat-selection-list>
+                </mat-tab>
+                <mat-tab label="Location">
+                    <div class="mile-div">
+                        <mat-radio-group class="mile-radius-group">
+                            <mat-radio-button value="1">Option 1</mat-radio-button>
+                            <mat-radio-button value="2">Option 2</mat-radio-button>
+                            <mat-radio-button value="3">Option 3</mat-radio-button>
+                        </mat-radio-group>
+                    </div>
+                </mat-tab>
+        </mat-tab-group>
+    </div>
+</div>
+<div class="filter-actions" mat-dialog-actions>
+    <button mat-raised-button color="primary" >Save and Filter</button>
+    <button mat-stroked-button mat-dialog-close cdkFocusInitial>Cancel</button>
+</div>
+  

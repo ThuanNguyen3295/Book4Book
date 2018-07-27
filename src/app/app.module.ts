@@ -104,7 +104,7 @@ import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { MatFormFieldModule} from '@angular/material/form-field';
 import { SearchbarComponent } from './searchbar/searchbar.component';
 import { LoginComponent } from './login/login.component';
-
+import {FilterOptionsDialog } from './filterOptions/filter.component'
 
 const appRoutes: Routes = [
   {path:'', component: HomeComponent},
@@ -125,7 +125,8 @@ const appRoutes: Routes = [
     HomeComponent,
     PostComponent,
     SearchbarComponent,
-    LoginComponent
+    LoginComponent,
+    FilterOptionsDialog
   ],
   imports: [
     BrowserModule,
@@ -141,6 +142,7 @@ const appRoutes: Routes = [
   ],
   entryComponents:[
     LoginComponent,
+    FilterOptionsDialog
   ],
   providers: [AuthService, RequestService, UtilService],
   bootstrap: [AppComponent]

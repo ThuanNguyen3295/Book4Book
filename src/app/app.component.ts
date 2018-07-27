@@ -1,11 +1,11 @@
 import { Component, ViewChild } from '@angular/core';
-import {FormBuilder, FormGroup} from '@angular/forms';
+import { FormBuilder, FormGroup} from '@angular/forms';
 import { MatSidenav} from '@angular/material';
 import { HostListener } from '@angular/core'
 import { LoginComponent } from '../app/login/login.component';
 import { MatDialog } from '@angular/material';
-import {tokenNotExpired} from 'angular2-jwt';
-
+import { tokenNotExpired } from 'angular2-jwt';
+import { FilterOptionsDialog } from './filterOptions/filter.component'
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -36,5 +36,8 @@ export class AppComponent {
   }
   logout(){
     localStorage.clear();
+  }
+  openFilterDialog(){
+    this.matDialog.open(FilterOptionsDialog)
   }
 }
