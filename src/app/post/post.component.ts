@@ -17,7 +17,7 @@ export class PostComponent implements OnInit {
   title: AbstractControl;
   description: AbstractControl;
   genre: AbstractControl;
-  subject: AbstractControl;
+  // subject: AbstractControl;
   version: AbstractControl;
   img: AbstractControl;
 
@@ -31,7 +31,7 @@ export class PostComponent implements OnInit {
       title: ['', Validators.compose([Validators.required,Validators.pattern('[a-zA-Z0-9_]*'), Validators.minLength(5), Validators.maxLength(30)])],
       description: [''],
       genre: ['', Validators.compose([Validators.required])],
-      subject: ['', Validators.compose([Validators.required])],
+      // subject: ['', Validators.compose([Validators.required])],
       version: [''],
       img: ['']
     });
@@ -62,7 +62,7 @@ export class PostComponent implements OnInit {
     fd.append('ownerId', "dasdqwer234234234")
     fd.append('description', this.bookFormGroup.get("description").value)
     fd.append('genre', this.bookFormGroup.get("genre").value)
-    fd.append('subject', this.bookFormGroup.get("subject").value)
+    fd.append('subject', "None To Be Removed")
     fd.append('version', this.bookFormGroup.get("version").value)
     fd.append('create_date', Date.now() + "")
     fd.append('zipcode', "92128")

@@ -10,28 +10,45 @@
                     <mat-hint align="end">{{input.value?.length || 0}}/30</mat-hint>
                 </mat-form-field>
                 <mat-form-field>
-                    <textarea formControlName="description" matInput placeholder="Description"></textarea>
+                    <textarea formControlName="description" matInput placeholder="Description/Condition"></textarea>
                 </mat-form-field>
                 <mat-form-field>
                     <mat-select formControlName="genre" required placeholder="Genre">
-                      <mat-option value="Science"> Science </mat-option>
-                      <mat-option value="Drama"> Drama </mat-option>
-                      <mat-option value="Horror"> Horror </mat-option>        
-                      <mat-option value="Actmat"> Actmat </mat-option>
+                      <mat-option value="Science fiction"> Science fiction </mat-option>
                       <mat-option value="Satire"> Satire </mat-option>
+                      <mat-option value="Drama"> Drama </mat-option>        
+                      <mat-option value="Action and Adventure"> Action and Adventure </mat-option>
+                      <mat-option value="Mystery"> Mystery </mat-option>
                       <mat-option value="Romance"> Romance </mat-option>
-                      <mat-option value="Self Help"> Self Help </mat-option>
+                      <mat-option value="Horror"> Horror </mat-option>
+                      <mat-option value="Self help"> Self help </mat-option>
                       <mat-option value="Health"> Health </mat-option>
+                      <mat-option value="Guide"> Guide </mat-option>
                       <mat-option value="Travel"> Travel </mat-option>
+                      <mat-option value="Children's"> Children's </mat-option>
+                      <mat-option value="Religion, Spirituality & New Age"> Religion, Spirituality & New Age </mat-option>
+                      <mat-option value="Science"> Science </mat-option>
                       <mat-option value="History"> History </mat-option>
+                      <mat-option value="Math"> Math </mat-option>
+                      <mat-option value="Anthology"> Anthology </mat-option>
+                      <mat-option value="Poetry"> Poetry </mat-option>
+                      <mat-option value="Encyclopedias"> Encyclopedias </mat-option>
+                      <mat-option value="Dictionaries"> Dictionaries </mat-option>
                       <mat-option value="Comics"> Comics </mat-option>
                       <mat-option value="Art"> Art </mat-option>
+                      <mat-option value="Cookbooks"> Cookbooks </mat-option>
+                      <mat-option value="Diaries"> Diaries </mat-option>
                       <mat-option value="Journals"> Journals </mat-option>
-                      <mat-option value="Anime"> Anime </mat-option>
-                      <mat-option value="Anthology"> Anthology </mat-option>
+                      <mat-option value="Prayer books"> Prayer books  </mat-option>
+                      <mat-option value="Series"> Series </mat-option>
+                      <mat-option value="Trilogy"> Trilogy </mat-option>
+                      <mat-option value="Biographies"> Biographies </mat-option>
+                      <mat-option value="Autobiographies"> Autobiographies </mat-option>
+                      <mat-option value="Fantasy"> Fantasy </mat-option>
+                      <mat-option value="Comics"> Comics </mat-option>
                     </mat-select>
                 </mat-form-field>
-                <mat-form-field>
+                <!-- <mat-form-field>
                     <mat-select formControlName="subject"  required placeholder="Subject">
                       <mat-option value="None">None</mat-option>
                       <mat-option value="Math"> Math </mat-option>
@@ -47,7 +64,7 @@
                       <mat-option value="Biology"> Biology </mat-option>
                       <mat-option value="Social Study"> Social Study </mat-option> 
                     </mat-select>
-                </mat-form-field>
+                </mat-form-field> -->
                 <mat-form-field>
                     <input formControlName="version" matInput placeholder="Version">
                 </mat-form-field>

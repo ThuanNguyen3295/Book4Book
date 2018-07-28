@@ -97,6 +97,7 @@ import { HomeComponent } from './home/home.component';
 import { AuthService } from '../app/services/auth.service'
 import { UtilService } from '../app/services/util.service'
 import { RequestService } from '../app/services/request.service'
+import { FilterService } from '../app/services/filter.service'
 import { HttpModule} from '@angular/http';
 import { PostComponent } from './post/post.component';
 import { AuthGuard } from './guard/auth.guard';
@@ -104,7 +105,7 @@ import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { MatFormFieldModule} from '@angular/material/form-field';
 import { SearchbarComponent } from './searchbar/searchbar.component';
 import { LoginComponent } from './login/login.component';
-import {FilterOptionsDialog } from './filterOptions/filter.component'
+import { FilterOptionsDialog } from './filterOptions/filter.component'
 
 const appRoutes: Routes = [
   {path:'', component: HomeComponent},
@@ -144,7 +145,7 @@ const appRoutes: Routes = [
     LoginComponent,
     FilterOptionsDialog
   ],
-  providers: [AuthService, RequestService, UtilService],
+  providers: [AuthService, RequestService, UtilService, FilterService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
