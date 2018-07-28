@@ -2,9 +2,9 @@
 <div class="login-dialog">
     <mat-card class="login-container">
         <mat-card-actions class="button-navigate">
-            <button class="button-navigate-login" mat-flat-button>Sign In</button>
+            <button class="button-navigate-login" mat-flat-button (click)="wantToSignIn()">Sign In</button>
             <span class="mat-card-spacer"></span>
-            <button class="button-navigate-register" mat-flat-button>Register</button>
+            <button class="button-navigate-register" mat-flat-button (click)="wantToRegister()">Register</button>
         </mat-card-actions>
 
         <mat-card-content>
@@ -15,13 +15,21 @@
                 <mat-form-field class="form-field">
                     <input matInput required formControlName="password" placeholder="Password" type="password">
                 </mat-form-field>
+
+                <mat-form-field class="form-field" [ngClass]="{'slide-in': isCreatingNewAccount, 'slide-out': !isCreatingNewAccount}">
+                    <input matInput required formControlName="email" placeholder="Email" type="email">
+                </mat-form-field>
+
+                <mat-form-field class="form-field" [ngClass]="{'slide-in': isCreatingNewAccount, 'slide-out': !isCreatingNewAccount}">
+                    <input matInput required formControlName="zipcode" placeholder="Zipcode" type="number">
+                </mat-form-field>
             </form>
         </mat-card-content>
 
         <mat-card-footer class="button-navigate">
-            <button class="button-navigate-submit" [disabled]="!(userCredentials.controls.username.valid && userCredentials.controls.password.valid)" (click)="onCloseConfirm()" mat-flat-button>Submit</button>
+            <button class="button-navigate-submit" [disabled]="!(userCredentials.controls.username.valid && userCredentials.controls.password.valid)" (click)="onCloseConfirm()" mat-flat-button color="primary">Submit</button>
             <span class="mat-card-spacer"></span>
-            <button class="button-navigate-cancel" (click)="onCloseCancel()" mat-flat-button>Cancel</button>
+            <button class="button-navigate-cancel" (click)="onCloseCancel()" mat-stroked-button>Cancel</button>
         </mat-card-footer>
 </mat-card>
 </div>

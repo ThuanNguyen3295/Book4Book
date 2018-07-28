@@ -24,7 +24,7 @@ mat-card {
         font: bold 1.2em;
         height: 50px;
         border-radius: 0px !important;   
-        background-image: linear-gradient(to right, #314755 0%, #26a0da 51%, #314755 100%);
+        background-image: linear-gradient(to right, #81b6e0 0%, #a6c6e2 51%, #81b6e0 100%)
     }
         /* THIS IS THE RIBBON */
         .button-navigate-login::before {
@@ -70,9 +70,18 @@ mat-card {
             border-top: 25px solid transparent;
             border-bottom: 25px solid transparent;
         }
+    .button-navigate-login:focus {
+        background-image: linear-gradient(to right, #314755 0%, #26a0da 51%, #314755 100%);
+    }
+    .button-navigate-register:focus {
+        background-image: linear-gradient(to right, #314755 0%, #26a0da 51%, #314755 100%);
+    }
 
-    .button-navigate-submit, .button-navigate-cancel {
-        background-image: linear-gradient(to right, #e53935 0%, #e35d5b 51%, #e53935 100%);
+
+    .button-navigate-cancel {
+        color: black;
+        background-color: white;
+        outline: 2px black !important;
     }
 
 
@@ -100,4 +109,29 @@ mat-spinner {
     position: fixed;
     left: 50%;
     top: 40%;
+}
+
+/* TESTING REGISTER */
+
+.slide-in {
+    animation: slideIn ease-in-out 1;
+    animation-duration: 400ms;
+}
+
+
+.slide-out {
+    animation: slideOut ease-in-out 1;
+    animation-duration: 400ms;
+    opacity: 0;
+    display: none;        
+    transition: all 400ms ease-in-out;
+    transition-delay: 400ms;
+}
+
+@keyframes slideIn{
+    0%{transform: translate3d(0,-100%,0)}
+}
+
+@keyframes slideOut{
+    100%{transform: translate3d(0,-250%,0)}          
 }
