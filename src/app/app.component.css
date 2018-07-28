@@ -47,9 +47,9 @@ container{
 }
 
 .logo {
-    padding-top: 6px;
-    width: 100px;
-    height: 100px;
+    margin-left: 25px;
+    width: 50px;
+    height: 50px;
 }
 mat-sidenav-content{
     height: 90vh;

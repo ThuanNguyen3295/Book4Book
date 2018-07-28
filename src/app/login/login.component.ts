@@ -66,4 +66,15 @@ export class LoginComponent implements OnInit {
     this.thisDiaLogRef.close('Cancel');
   }
 
+  //PRIAVTE METHODS
+  wantToSignIn(){
+    if(this.isCreatingNewAccount == true)
+      this.isCreatingNewAccount = !this.isCreatingNewAccount;
+  }
+
+  wantToRegister(){
+    if(this.isCreatingNewAccount == false)
+      this.isCreatingNewAccount = !this.isCreatingNewAccount;
+  }
+
 }
