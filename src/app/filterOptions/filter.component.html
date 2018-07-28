@@ -2,40 +2,9 @@
     <div class="filter-main">
         <mat-tab-group>
                 <mat-tab label="Genre">
-                    <mat-selection-list >
+                    <mat-selection-list #list [(ngModel)]="selectedOptions" >
                         <div class="selection-div" >
-                            <mat-list-option value="Science fiction"> Science fiction </mat-list-option>
-                            <mat-list-option value="Satire"> Satire </mat-list-option>
-                            <mat-list-option value="Drama"> Drama </mat-list-option>        
-                            <mat-list-option value="Action and Adventure"> Action and Adventure </mat-list-option>
-                            <mat-list-option value="Mystery"> Mystery </mat-list-option>
-                            <mat-list-option value="Romance"> Romance </mat-list-option>
-                            <mat-list-option value="Horror"> Horror </mat-list-option>
-                            <mat-list-option value="Self help"> Self help </mat-list-option>
-                            <mat-list-option value="Health"> Health </mat-list-option>
-                            <mat-list-option value="Guide"> Guide </mat-list-option>
-                            <mat-list-option value="Travel"> Travel </mat-list-option>
-                            <mat-list-option value="Children's"> Children's </mat-list-option>
-                            <mat-list-option value="Religion, Spirituality & New Age"> Religion, Spirituality & New Age </mat-list-option>
-                            <mat-list-option value="Science"> Science </mat-list-option>
-                            <mat-list-option value="History"> History </mat-list-option>
-                            <mat-list-option value="Math"> Math </mat-list-option>
-                            <mat-list-option value="Anthology"> Anthology </mat-list-option>
-                            <mat-list-option value="Poetry"> Poetry </mat-list-option>
-                            <mat-list-option value="Encyclopedias"> Encyclopedias </mat-list-option>
-                            <mat-list-option value="Dictionaries"> Dictionaries </mat-list-option>
-                            <mat-list-option value="Comics"> Comics </mat-list-option>
-                            <mat-list-option value="Art"> Art </mat-list-option>
-                            <mat-list-option value="Cookbooks"> Cookbooks </mat-list-option>
-                            <mat-list-option value="Diaries"> Diaries </mat-list-option>
-                            <mat-list-option value="Journals"> Journals </mat-list-option>
-                            <mat-list-option value="Prayer books"> Prayer books  </mat-list-option>
-                            <mat-list-option value="Series"> Series </mat-list-option>
-                            <mat-list-option value="Trilogy"> Trilogy </mat-list-option>
-                            <mat-list-option value="Biographies"> Biographies </mat-list-option>
-                            <mat-list-option value="Autobiographies"> Autobiographies </mat-list-option>
-                            <mat-list-option value="Fantasy"> Fantasy </mat-list-option>
-                            <mat-list-option value="Comics"> Comics </mat-list-option>
+                            <mat-list-option class="mat-list-option" *ngFor="let opt of filterGenres" [selected]="selectedOptions.includes(opt.name)" [value]="opt.name">{{opt.name}}</mat-list-option>
                         </div>
                     </mat-selection-list>
                 </mat-tab>
@@ -54,7 +23,8 @@
     </div>
 </div>
 <div class="filter-actions" mat-dialog-actions>
-    <button mat-raised-button color="primary" (click)="onSaveAndSearch()" >Save and Filter</button>
+    <button mat-raised-button mat-dialog-close color="primary" (click)="onSaveAndSearch()" >Save and Filter</button>
+    <button mat-stroked-button mat-dialog-close (click)="resetFilter()">Reset</button>
     <button mat-stroked-button mat-dialog-close cdkFocusInitial>Cancel</button>
 </div>
   

@@ -8,14 +8,16 @@ export class FilterService {
   private searchFilter = new BehaviorSubject<Boolean>(undefined);
   onSearchFilter = this.searchFilter.asObservable();
   constructor() { }
-  onSaveAndSearch(filterOptions: Object, onSearch: Boolean) {
+  onSaveAndSearch(onSearch: Boolean) {
     this.searchFilter.next(onSearch)
   }
   setFilter(filterOptions){
     localStorage.setItem("filterOptions", filterOptions)
   }
   getFilter(){
-    return localStorage.getItem("filterOptions")
+    if (localStorage.getItem("filterOptions") != null)
+      return localStorage.getItem("filterOptions").split(",")
+    return []
   }
   clearFilter(){
     return localStorage.removeItem("filterOptions")

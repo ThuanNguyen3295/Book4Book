@@ -52,10 +52,16 @@ container{
     height: 100px;
 }
 mat-sidenav-content{
-    height: 86.7vh;
+    height: 90vh;
 }
 mat-sidenav{
     overflow: hidden;
+}
+
+.footer{
+    position: fixed;
+    bottom: 0; 
+    height: 30px;
 }
 @media (max-width: 1400px) {
     mat-sidnav, .button-list {

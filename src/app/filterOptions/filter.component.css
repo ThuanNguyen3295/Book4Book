@@ -29,6 +29,8 @@
 .mile-radius-group mat-radio-button{
     margin: 10px;
 }
-.mat-tab-label {
-    margin: auto;
+.mat-tab-label, .mat-tab-label-active{
+    min-width: 0!important;
+    padding: 3px!important;
+    margin-left: 30px!important;
 }

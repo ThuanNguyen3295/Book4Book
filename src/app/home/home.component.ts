@@ -5,8 +5,8 @@ import { PageEvent } from '@angular/material';
 import { MatPaginator } from '@angular/material/paginator';
 import { tap } from 'rxjs/operators';
 import { UtilService } from '../services/util.service'
-import {MatSnackBar} from '@angular/material';
-
+import { MatSnackBar} from '@angular/material';
+import { FilterService } from '../services/filter.service'
 
 @Component({
   selector: 'app-home',
@@ -23,11 +23,13 @@ export class HomeComponent implements OnInit{
   
   constructor(private requestService :  RequestService,
               private utilService: UtilService,
-              private snackBar: MatSnackBar) { }
+              private snackBar: MatSnackBar,
+              private filterService: FilterService) { }
 
   ngOnInit() {
     //binding the searchValue as obserable from util service, it will listen on value changes
     this.utilService.currentSerchValue.subscribe(searchValue => this.onSearch(searchValue));
+    this.filterService.onSearchFilter.subscribe(isFilter => this.onFilter(isFilter));
     this.loading = true
     this.requestService.getBooks().subscribe(res=>{
       this.books = res
@@ -56,7 +58,21 @@ export class HomeComponent implements OnInit{
       }
     }
   }
-
+  onFilter(isFilter){
+    this.books = this.requestService.getCachedBooks();
+    if (isFilter){
+      this.loading = true
+      let filterOptions: string[] = this.filterService.getFilter()
+      let booksToShow: Book[] = []
+      this.books.forEach(book => {
+        if (filterOptions.includes(book.genre)){
+          booksToShow.push(book)
+        }
+      });
+      this.books = booksToShow
+      this.loading = false
+    }
+  }
   formatDate(){
     this.books.forEach(book => {
         book.create_date = this.utilService.formatDate(book.create_date);
