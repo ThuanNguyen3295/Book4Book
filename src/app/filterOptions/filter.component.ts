@@ -7,8 +7,15 @@ import { FilterService } from '../services/filter.service'
     styleUrls: ['./filter.component.css']
 })
 export class FilterOptionsDialog {
-    attrs: any[] = [];
-    selectedOptions: string[] = ["science_fiction"];
+    selectedOptions: string[] = [];
+    mileRadius: number
+    mileOption= [
+      { distance: 5, value: "< 5 miles" },
+      { distance: 10, value: "< 10 miles" },
+      { distance: 25, value: "< 25 miles" },
+      { distance: 50, value: "< 50 miles" },
+      {distance: -1, value: "Anywhere"}
+    ]
     filterGenres=[
       {name: "Science And Fiction"},
       {name: "Satire"},
@@ -35,7 +42,7 @@ export class FilterOptionsDialog {
       {name: "Cook_books"},
       {name: "Diaries"},
       {name: "Journals"},
-      {name: "Prayer_books"},
+      {name: "Prayer books"},
       {name: "Series"},
       {name: "Trilogy"},
       {name: "Biographies"},
@@ -47,15 +54,14 @@ export class FilterOptionsDialog {
       private filterService: FilterService 
     ) {
       this.selectedOptions = this.filterService.getFilter()
+      this.mileRadius = this.filterService.getMileRadius()
     }
         
     onNoClick(): void {
       this.dialogRef.close();
     }
     onSaveAndSearch(){
-      console.log(this.selectedOptions)
-      this.filterService.setFilter(this.selectedOptions)
-      console.log(this.filterGenres)
+      this.filterService.setFilter(this.selectedOptions, this.mileRadius)
       this.filterService.onSaveAndSearch(true)
     }
     resetFilter(){

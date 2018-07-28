@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 import { RequestService } from '../services/request.service'
+import { AuthService } from '../services/auth.service'
 import {Router} from '@angular/router';
 import {MatSnackBar} from '@angular/material';
 
@@ -17,21 +18,20 @@ export class PostComponent implements OnInit {
   title: AbstractControl;
   description: AbstractControl;
   genre: AbstractControl;
-  // subject: AbstractControl;
   version: AbstractControl;
   img: AbstractControl;
 
   constructor(private formBuilder: FormBuilder,
               private requestService: RequestService,
               private router: Router,
-              private snackBar: MatSnackBar        
+              private snackBar: MatSnackBar,
+              private authService: AuthService        
   ) {
 
     this.bookFormGroup = this.formBuilder.group({
-      title: ['', Validators.compose([Validators.required,Validators.pattern('[a-zA-Z0-9_]*'), Validators.minLength(5), Validators.maxLength(30)])],
+      title: ['', Validators.compose([Validators.required,Validators.pattern('[a-zA-Z0-9 ]*'), Validators.minLength(5), Validators.maxLength(30)])],
       description: [''],
       genre: ['', Validators.compose([Validators.required])],
-      // subject: ['', Validators.compose([Validators.required])],
       version: [''],
       img: ['']
     });
@@ -56,16 +56,17 @@ export class PostComponent implements OnInit {
     }
     this.loading = true
     const fd = new FormData();
+    let user = this.authService.loadUser()
+    //TODO check if user if null 
     fd.append('image', this.selectedImage, "image")
     fd.append('title', this.bookFormGroup.get("title").value)
-    fd.append('ownerName', "some name")
-    fd.append('ownerId', "dasdqwer234234234")
+    fd.append('ownerName', user.username)
+    fd.append('ownerId', user.id)
     fd.append('description', this.bookFormGroup.get("description").value)
     fd.append('genre', this.bookFormGroup.get("genre").value)
-    fd.append('subject', "None To Be Removed")
     fd.append('version', this.bookFormGroup.get("version").value)
     fd.append('create_date', Date.now() + "")
-    fd.append('zipcode', "92128")
+    fd.append('zipcode', user.zipcode)
     
     this.requestService.postBook(fd).subscribe(res=>{
       this.loading = false

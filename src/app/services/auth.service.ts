@@ -25,9 +25,11 @@ export class AuthService {
   loadToken(){
     const token = localStorage.getItem('id_token');
     this.authToken = token;
+    return this.authToken;
   }
   loadUser(){
     this.user = JSON.parse(localStorage.getItem('user'));
+    return this.user
   }
   loggedIn(){
     return tokenNotExpired('id_token');
@@ -42,5 +44,8 @@ export class AuthService {
     this.authToken = null;
     this.user = null;
     localStorage.clear();
+  }
+  getUserZipCode(){
+    return this.loadUser().zipcode
   }
 }

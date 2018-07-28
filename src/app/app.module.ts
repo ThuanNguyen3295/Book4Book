@@ -98,6 +98,7 @@ import { AuthService } from '../app/services/auth.service'
 import { UtilService } from '../app/services/util.service'
 import { RequestService } from '../app/services/request.service'
 import { FilterService } from '../app/services/filter.service'
+import { LocationService } from '../app/services/location.service'
 import { HttpModule} from '@angular/http';
 import { PostComponent } from './post/post.component';
 import { AuthGuard } from './guard/auth.guard';
@@ -145,7 +146,7 @@ const appRoutes: Routes = [
     LoginComponent,
     FilterOptionsDialog
   ],
-  providers: [AuthService, RequestService, UtilService, FilterService],
+  providers: [AuthService, RequestService, UtilService, FilterService, LocationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

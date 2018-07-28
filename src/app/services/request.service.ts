@@ -24,7 +24,7 @@ export class RequestService {
   }
   postBook(fd: FormData){
 
-    var token = "JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7Il9pZCI6IjViNGVjMDdiMTBiODNjMGY0NDE1MjQ5ZSIsIm5hbWUiOiJFdmFuIE5ndXllbiIsImVtYWlsIjoiZXZhbkBhYmMuY29tIiwidXNlcm5hbWUiOiJFdmFuTmd1eWVuIiwicGFzc3dvcmQiOiIkMmEkMTAkdXN0VGNsaUJna2J0cm1oelcuamxRLktCeThVUi4xc3VRYW9jaThoR1IwY3c2VVhOUVFTaG0iLCJ6aXBjb2RlIjo4MjEyNywiX192IjowfSwiaWF0IjoxNTMxODkzMzA1LCJleHAiOjE1MzI0OTgxMDV9.E53xLz9BPu3KpGdms-DiKMLYM3-sJukbAsGAsCprMew"
+    var token = this.authService.loadToken()
     let headers = new Headers();
     headers.append('Authorization', token);
     // headers.append('Content-Type', 'application/json');

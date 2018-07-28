@@ -11,15 +11,24 @@ export class FilterService {
   onSaveAndSearch(onSearch: Boolean) {
     this.searchFilter.next(onSearch)
   }
-  setFilter(filterOptions){
+  setFilter(filterOptions, mileRadius){
+    localStorage.setItem("mileRadius", mileRadius)
     localStorage.setItem("filterOptions", filterOptions)
   }
   getFilter(){
-    if (localStorage.getItem("filterOptions") != null)
-      return localStorage.getItem("filterOptions").split(",")
+    var options = localStorage.getItem("filterOptions")
+    if ( options != null)
+      return options.split(",")
     return []
   }
   clearFilter(){
-    return localStorage.removeItem("filterOptions")
+    localStorage.removeItem("mileRadius")
+    localStorage.removeItem("filterOptions")
+  }
+  getMileRadius(){
+    var mile = localStorage.getItem("mileRadius")
+    if (mile != null)
+      return parseInt(mile)
+    return -1
   }
 }

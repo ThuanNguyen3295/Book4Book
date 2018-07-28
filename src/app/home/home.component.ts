@@ -7,7 +7,8 @@ import { tap } from 'rxjs/operators';
 import { UtilService } from '../services/util.service'
 import { MatSnackBar} from '@angular/material';
 import { FilterService } from '../services/filter.service'
-
+import { LocationService } from '../services/location.service'
+import { AuthService } from '../services/auth.service'
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -24,7 +25,9 @@ export class HomeComponent implements OnInit{
   constructor(private requestService :  RequestService,
               private utilService: UtilService,
               private snackBar: MatSnackBar,
-              private filterService: FilterService) { }
+              private filterService: FilterService,
+              private locationService: LocationService,
+              private authService: AuthService) { }
 
   ngOnInit() {
     //binding the searchValue as obserable from util service, it will listen on value changes
@@ -61,11 +64,20 @@ export class HomeComponent implements OnInit{
   onFilter(isFilter){
     this.books = this.requestService.getCachedBooks();
     if (isFilter){
+      const mileRadius = this.filterService.getMileRadius()
+      let zipBound: any
+      if (mileRadius != -1){
+        zipBound = this.locationService.getMileRadius(this.authService.getUserZipCode(), mileRadius)
+      }
       this.loading = true
       let filterOptions: string[] = this.filterService.getFilter()
       let booksToShow: Book[] = []
       this.books.forEach(book => {
         if (filterOptions.includes(book.genre)){
+          console.log(book.zipcode)
+          if (mileRadius != -1 && (!zipBound.includes(book.zipcode.toString()))){
+            return;
+          } 
           booksToShow.push(book)
         }
       });

@@ -1,7 +1,7 @@
 <div mat-dialog-content>
     <div class="filter-main">
         <mat-tab-group>
-                <mat-tab label="Genre">
+                <mat-tab label="Genres">
                     <mat-selection-list #list [(ngModel)]="selectedOptions" >
                         <div class="selection-div" >
                             <mat-list-option class="mat-list-option" *ngFor="let opt of filterGenres" [selected]="selectedOptions.includes(opt.name)" [value]="opt.name">{{opt.name}}</mat-list-option>
@@ -10,12 +10,8 @@
                 </mat-tab>
                 <mat-tab label="Location">
                     <div class="mile-div">
-                        <mat-radio-group class="mile-radius-group">
-                            <mat-radio-button value="5"> < 5 miles </mat-radio-button>
-                            <mat-radio-button value="10"> < 10 miles </mat-radio-button>
-                            <mat-radio-button value="25"> < 25 miles </mat-radio-button>
-                            <mat-radio-button value="50"> < 50 miles </mat-radio-button>
-                            <mat-radio-button checked value="Anywhere"> Anywhere </mat-radio-button>
+                        <mat-radio-group class="mile-radius-group" [(ngModel)]="mileRadius" >
+                            <mat-radio-button *ngFor="let mile of mileOption" [value]="mile.distance"> {{mile.value}} </mat-radio-button>
                         </mat-radio-group>
                     </div>
                 </mat-tab>

@@ -2,7 +2,6 @@ export class Book {
     title: string;
     _id: string;
     genre: string;
-    subject: string;
     imageId: string;
     image: any;
     version: string;
