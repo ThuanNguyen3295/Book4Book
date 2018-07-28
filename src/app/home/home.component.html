@@ -1,17 +1,47 @@
 <mat-spinner *ngIf="loading"></mat-spinner>
 <div *ngIf="!loading" class="full">
-  <div *ngFor="let book of books" class="card-div">
-    <mat-card class="book-card">
-      <img *ngIf="!book.image" class="book-cover" mat-card-image src="http://librosebooks.org/img/xggS:XXBBB.wVSVg87.81vXaEui7X2nttXnPXwVSVg8-iqWVfi-I-gVWq-VvjfV.fSv.png" alt="">
-      <img *ngIf="book.image" class="book-cover" mat-card-image 
-          src="{{book.image}}" alt="">
-      <mat-card-footer>
-        <button mat-icon-button matTooltip="{{book.title}} &#013; {{book.create_date}}"  matTooltipPosition="below" matTooltipClass="tooltip-color">
-            <mat-icon>arrow_right_alt</mat-icon>
+    <div *ngFor="let book of books" class="card-div">
+        <mat-card class="book-card">
+        <img *ngIf="!book.image" class="book-cover" mat-card-image src="http://librosebooks.org/img/xggS:XXBBB.wVSVg87.81vXaEui7X2nttXnPXwVSVg8-iqWVfi-I-gVWq-VvjfV.fSv.png" alt="">
+        <img *ngIf="book.image" class="book-cover" mat-card-image 
+            src="{{book.image}}" alt="">
+        <mat-card-footer>
+            <button mat-icon-button matTooltip="{{book.title}} &#013; {{book.create_date}}"  matTooltipPosition="below" matTooltipClass="tooltip-color">
+                <mat-icon>arrow_right_alt</mat-icon>
+            </button>
+        </mat-card-footer>
+        </mat-card>
+    </div>
+    <div class="map-view" [ngClass]="{'full-screen': isFullScreen}" >
+        <agm-map [latitude]="lat" [longitude]="lng" [zoom]="10">
+            <agm-marker [latitude]="lat" [longitude]="lng" label="You">
+                <agm-info-window >
+                    <a routerLink="/">This is your zip code</a>
+                </agm-info-window>
+            </agm-marker>
+            <agm-marker *ngFor="let marker of markers" [latitude]="marker.lat" [longitude]="marker.long" >
+                <agm-info-window [disableAutoPan]="true">
+                    <a routerLink="/">Go there</a>
+                </agm-info-window>
+            </agm-marker>
+            <agm-circle 
+                [latitude]="lat"
+                [longitude]="lng"
+                [circleDraggable]="false"
+                [editable]="false"
+                fillColor="#83aff7"
+                [radius]="10000">
+            </agm-circle>
+        </agm-map>
+    </div>
+    <div class="map-actions">
+        <button mat-icon-button (click)="isFullScreen=true">
+            <i class="material-icons">fullscreen</i>
         </button>
-      </mat-card-footer>
-    </mat-card>
-  </div>  
+        <button mat-icon-button  (click)="isFullScreen=false">
+            <i class="material-icons">fullscreen_exit</i>
+        </button>
+    </div>
 </div>
 
 <!-- <div class="my-paginator">
@@ -20,4 +50,5 @@
     (page)="getData($event)">
     </mat-paginator>
 </div> -->
+
 

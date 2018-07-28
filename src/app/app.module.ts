@@ -107,6 +107,7 @@ import { MatFormFieldModule} from '@angular/material/form-field';
 import { SearchbarComponent } from './searchbar/searchbar.component';
 import { LoginComponent } from './login/login.component';
 import { FilterOptionsDialog } from './filterOptions/filter.component'
+import { AgmCoreModule } from '@agm/core';
 
 const appRoutes: Routes = [
   {path:'', component: HomeComponent},
@@ -140,7 +141,11 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     MatFormFieldModule,
     RouterModule.forRoot(appRoutes),
-    HttpModule
+    HttpModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyDf-yIqxErTkbWzKhLox7nAANnrfDIY190&libraries',
+      libraries: ['geometry']
+    })
   ],
   entryComponents:[
     LoginComponent,
