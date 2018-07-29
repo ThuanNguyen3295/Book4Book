@@ -26,10 +26,10 @@
             </form>
         </mat-card-content>
 
-        <mat-card-footer class="button-navigate">
-            <button class="button-navigate-submit" [disabled]="!(userCredentials.controls.username.valid && userCredentials.controls.password.valid)" (click)="onCloseConfirm()" mat-flat-button color="primary">Submit</button>
+        <mat-card-footer class="button-navigate-bottom">
+            <button class="button-navigate-bottom-submit" [disabled]="!(userCredentials.controls.username.valid && userCredentials.controls.password.valid)" (click)="onCloseConfirm()" mat-flat-button color="primary">Submit</button>
             <span class="mat-card-spacer"></span>
-            <button class="button-navigate-cancel" (click)="onCloseCancel()" mat-stroked-button>Cancel</button>
+            <button class="button-navigate-bottom-cancel" (click)="onCloseCancel()" mat-stroked-button>Cancel</button>
         </mat-card-footer>
 </mat-card>
 </div>
