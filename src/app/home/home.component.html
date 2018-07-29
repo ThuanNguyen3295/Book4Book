@@ -1,12 +1,12 @@
 <mat-spinner *ngIf="loading"></mat-spinner>
 <div *ngIf="!loading" class="full">
-    <div *ngFor="let book of books" class="card-div">
+    <div *ngFor="let book of books; let i = index" [attr.data-index]="i"  class="card-div">
         <mat-card class="book-card">
         <img *ngIf="!book.image" class="book-cover" mat-card-image src="http://librosebooks.org/img/xggS:XXBBB.wVSVg87.81vXaEui7X2nttXnPXwVSVg8-iqWVfi-I-gVWq-VvjfV.fSv.png" alt="">
         <img *ngIf="book.image" class="book-cover" mat-card-image 
             src="{{book.image}}" alt="">
         <mat-card-footer>
-            <button mat-icon-button matTooltip="{{book.title}} &#013; {{book.create_date}}"  matTooltipPosition="below" matTooltipClass="tooltip-color">
+            <button mat-icon-button matTooltip="{{book.title}} &#013; {{book.create_date}}" (click)="onViewDetail(book, i)" matTooltipPosition="below" matTooltipClass="tooltip-color">
                 <mat-icon>arrow_right_alt</mat-icon>
             </button>
         </mat-card-footer>

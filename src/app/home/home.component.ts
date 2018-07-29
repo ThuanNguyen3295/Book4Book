@@ -10,6 +10,8 @@ import { FilterService } from '../services/filter.service'
 import { LocationService } from '../services/location.service'
 import { AuthService } from '../services/auth.service'
 import { MapsAPILoader } from '@agm/core';
+import {Router} from  '@angular/router';
+
 declare var google;
 
 @Component({
@@ -37,7 +39,8 @@ export class HomeComponent implements OnInit{
               private filterService: FilterService,
               private locationService: LocationService,
               private authService: AuthService,
-              private mapsAPILoader: MapsAPILoader) {
+              private mapsAPILoader: MapsAPILoader,
+              private router: Router) {
     // initialize map
     var res = this.locationService.getUserLongLat()
     if (res != null){
@@ -51,20 +54,34 @@ export class HomeComponent implements OnInit{
     this.utilService.currentSerchValue.subscribe(searchValue => this.onSearch(searchValue));
     this.filterService.onSearchFilter.subscribe(isFilter => this.onFilter(isFilter));
     this.loading = true
-    this.requestService.getBooks().subscribe(res=>{
-      this.books = res
+    this.handleLoadBooks()
+  }
+
+  handleLoadBooks(){
+    this.books = this.requestService.getCachedBooks()
+    console.log("handleLoadBook")
+    if (this.books != null && this.books.length > 0){
+      console.log("has cached book")
       this.loadMap()
-      this.formatDate();
-      var i = 0;
-      for ( i = 0; i < this.books.length; i++){
-        this.getAndSetImage(i)
-      }
-      //set cached books on load
-      this.requestService.setCachedBooks(this.books)
-    })
+      this.loading = false
+    }else {
+      console.log("need to fetch from backend")
+      this.requestService.getBooks().subscribe(res=>{
+        this.books = res
+        this.loadMap()
+        this.formatDate();
+        var i = 0;
+        //set cached books on load
+        this.requestService.setCachedBooks(this.books)
+        for ( i = 0; i < this.books.length; i++){
+          this.getAndSetImage(i)
+        }
+      })
+    }
   }
   
   loadMap(){
+    //TODO check if login
     console.log(this.markers)
     this.mapsAPILoader.load().then(() => {
       this.markers = this.getBookLocations();
@@ -119,12 +136,13 @@ export class HomeComponent implements OnInit{
 
   getAndSetImage(index){
     console.log(index)
-    this.requestService.getBook(this.books[index].imageId).subscribe(res=>{
+    this.requestService.getImage(this.books[index].imageId).subscribe(res=>{
       let image = res['_body']
       let reader = new FileReader();
       reader.addEventListener("load", () => {
          this.books[index].image = reader.result;
          this.loading = false
+         this.requestService.setImage(index, reader.result)
       }, false);
       if (image) {
          reader.readAsDataURL(image);
@@ -140,6 +158,11 @@ export class HomeComponent implements OnInit{
       }
     })
     return res  
+  }
+
+  onViewDetail(book, index){
+    console.log(index)
+    this.router.navigate(['/detail',book._id], { queryParams: {index: index}})
   }
 
 } 
