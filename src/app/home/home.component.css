@@ -1,7 +1,7 @@
 .full{
     /* height: 86vh; */
     /* height: 100%; */
-    min-height: 86.7vh;
+    min-height: 90vh;
     background:linear-gradient(
         rgba(214, 234, 248, 0.95),
         rgba(233, 228, 255, 0.6)           
@@ -60,6 +60,29 @@ mat-spinner {
     position: fixed;
     left: 50%;
     top: 40%;
+}
+agm-map {
+    height: 300px;
+    width: 500px;
+}
+.map-view{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    box-shadow: 0 0 20px 0 rgba(72,94,116,0.7);
+}
+.map-actions{
+    position: absolute;
+    bottom: 17px;
+    right: 40px;
+}
+.full-screen{
+    width: 100%;
+    height: 100%;
+}
+.full-screen agm-map{
+    width: 100%;
+    height: 100%;
 }
 
 @media screen and (max-width: 414px){

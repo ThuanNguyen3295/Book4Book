@@ -98,6 +98,7 @@ import { AuthService } from '../app/services/auth.service'
 import { UtilService } from '../app/services/util.service'
 import { RequestService } from '../app/services/request.service'
 import { FilterService } from '../app/services/filter.service'
+import { LocationService } from '../app/services/location.service'
 import { HttpModule} from '@angular/http';
 import { PostComponent } from './post/post.component';
 import { AuthGuard } from './guard/auth.guard';
@@ -106,6 +107,7 @@ import { MatFormFieldModule} from '@angular/material/form-field';
 import { SearchbarComponent } from './searchbar/searchbar.component';
 import { LoginComponent } from './login/login.component';
 import { FilterOptionsDialog } from './filterOptions/filter.component'
+import { AgmCoreModule } from '@agm/core';
 
 const appRoutes: Routes = [
   {path:'', component: HomeComponent},
@@ -139,13 +141,17 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     MatFormFieldModule,
     RouterModule.forRoot(appRoutes),
-    HttpModule
+    HttpModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyDf-yIqxErTkbWzKhLox7nAANnrfDIY190&libraries',
+      libraries: ['geometry']
+    })
   ],
   entryComponents:[
     LoginComponent,
     FilterOptionsDialog
   ],
-  providers: [AuthService, RequestService, UtilService, FilterService],
+  providers: [AuthService, RequestService, UtilService, FilterService, LocationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
