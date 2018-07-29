@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-var zipcodes = require('zipcodes');
-
+// var zipcodes = require('zipcodes');
+import * as zipcodes from 'zipcodes'
 @Injectable({
   providedIn: 'root'
 })

@@ -62,13 +62,17 @@ mat-spinner {
     top: 40%;
 }
 agm-map {
-    height: 300px;
-    width: 500px;
+    height: 200px;
+    width: 400px;
+    /* height: 200px; */
+    /* width: 100%; */
+    /* max-width: 500px;  */
 }
 .map-view{
     position: absolute;
     bottom: 0;
     right: 0;
+    /* width: 50%; */
     box-shadow: 0 0 20px 0 rgba(72,94,116,0.7);
 }
 .map-actions{

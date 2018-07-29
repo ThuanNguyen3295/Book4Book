@@ -108,17 +108,16 @@ import { SearchbarComponent } from './searchbar/searchbar.component';
 import { LoginComponent } from './login/login.component';
 import { FilterOptionsDialog } from './filterOptions/filter.component'
 import { AgmCoreModule } from '@agm/core';
+import { SettingComponent } from './setting/setting.component';
+import { DetailpageComponent } from './detailpage/detailpage.component';
+import { ProfileComponent } from './profile/profile.component'
 
 const appRoutes: Routes = [
   {path:'', component: HomeComponent},
-  // {path:'register', component: RegisterComponent},
-  // {path:'login', component: LoginComponent},
-  // {path:'dashboard', component: DashboardComponent, canActivate:[AuthGuard]},
-  // {path:'profile', component: ProfileComponent, canActivate:[AuthGuard]},
-  // {path:'post', component: PostComponent, canActivate:[AuthGuard]},
-  {path:'post', component: PostComponent},
-
-  // {path:'detail/:id', component: DetailPageComponent},
+  {path:'setting', component: SettingComponent, canActivate:[AuthGuard]},
+  {path:'profile', component: ProfileComponent, canActivate:[AuthGuard]},
+  {path:'post', component: PostComponent, canActivate:[AuthGuard]},
+  {path:'detail/:id', component: DetailpageComponent},
   // {path:'about', component: AboutComponent},
   // {path:'**', component: Error404Component}
 ]
@@ -129,7 +128,10 @@ const appRoutes: Routes = [
     PostComponent,
     SearchbarComponent,
     LoginComponent,
-    FilterOptionsDialog
+    FilterOptionsDialog,
+    SettingComponent,
+    DetailpageComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -151,7 +153,7 @@ const appRoutes: Routes = [
     LoginComponent,
     FilterOptionsDialog
   ],
-  providers: [AuthService, RequestService, UtilService, FilterService, LocationService],
+  providers: [AuthService, RequestService, UtilService, FilterService, LocationService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

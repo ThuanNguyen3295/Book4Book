@@ -53,6 +53,7 @@ export class HomeComponent implements OnInit{
     this.loading = true
     this.requestService.getBooks().subscribe(res=>{
       this.books = res
+      this.loadMap()
       this.formatDate();
       var i = 0;
       for ( i = 0; i < this.books.length; i++){
@@ -63,19 +64,10 @@ export class HomeComponent implements OnInit{
     })
   }
   
-  loadMap(lat, lng){
+  loadMap(){
     console.log(this.markers)
     this.mapsAPILoader.load().then(() => {
       this.markers = this.getBookLocations();
-      // const center = new google.maps.LatLng(lat, lng);
-      // this.filteredMarkers = this.markers.filter(m => {
-      //   const markerLoc = new google.maps.LatLng(m.lat, m.long);
-      //   console.log(markerLoc)
-      //   const  distanceInKm = google.maps.geometry.spherical.computeDistanceBetween(markerLoc, center) / 1000;
-      //   if (distanceInKm < 50.0){
-      //     return m;
-      //   }
-      // });
     }); 
   }
   onSearch(searchValue){
@@ -115,7 +107,7 @@ export class HomeComponent implements OnInit{
         }
       });
       this.books = booksToShow
-      this.loadMap(this.lat, this.lng)
+      this.loadMap()
       this.loading = false
     }
   }
