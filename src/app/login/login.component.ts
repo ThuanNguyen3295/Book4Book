@@ -2,8 +2,9 @@ import { Component, OnInit , Inject} from '@angular/core';
 import { MatDialogRef } from '@angular/material';
 import { MAT_DIALOG_DATA } from '@angular/material';
 import { AuthService } from '../services/auth.service'
-import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, AbstractControl, FormControl } from '@angular/forms';
 import {MatSnackBar} from '@angular/material';
+import { MatDialog } from '@angular/material';
 
 @Component({
   selector: 'app-login',
@@ -13,19 +14,15 @@ import {MatSnackBar} from '@angular/material';
 export class LoginComponent implements OnInit {
   loading: boolean = false
   userCredentials: FormGroup;
-  username: AbstractControl;
-  password: AbstractControl;
-  email: AbstractControl;
-  zipcode: AbstractControl;
   emailPattern = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   isCreatingNewAccount: boolean = false;
-
   constructor(
     public thisDiaLogRef: MatDialogRef<LoginComponent>,
     @Inject(MAT_DIALOG_DATA) public data: String,
     private authService: AuthService,
     private formBuilder: FormBuilder,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    public matDialog: MatDialog
   ){}
 
   ngOnInit() {
@@ -33,16 +30,24 @@ export class LoginComponent implements OnInit {
       username: ['', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z0-9_]*'), Validators.minLength(5), Validators.maxLength(30)])],
       password: ['',Validators.compose([Validators.required, Validators.minLength(6)])],
       email: ['', Validators.compose([Validators.required, Validators.pattern(this.emailPattern)])],
-      zipcode: ['', Validators.compose([Validators.required, Validators.maxLength(5), Validators.minLength(5)])]
+      zipcode: ['', Validators.compose([Validators.required,Validators.maxLength(5), Validators.minLength(5)])]
     });
   }
 
   onCloseConfirm() {
-    this.loading = true
+    if(!this.isCreatingNewAccount){
+      this.signingIn();
+    }else {
+      this.registeringAccount();
+    }
+  }
+
+  signingIn(){
+    this.loading = true;
     const user = {
       username:  this.userCredentials.get("username").value,
-      password:  this.password = this.userCredentials.get("password").value
-    }
+      password:  this.userCredentials.get("password").value
+    };
     //Verify the username and password
     this.authService.authenticateUser(user).subscribe(data =>{
       this.loading = false;
@@ -61,15 +66,36 @@ export class LoginComponent implements OnInit {
       }
     });
   }
+  registeringAccount(){
+    const user = {
+      username:  this.userCredentials.get("username").value,
+      password:  this.userCredentials.get("password").value,
+      email: this.userCredentials.get("email").value,
+      zipcode: this.userCredentials.get("zipcode").value
+    };
+
+    this.authService.registerUser(user).subscribe(data =>{
+      if(data.success){
+        this.thisDiaLogRef.close('Confirm');
+        this.snackBar.open("User registered!", null, {duration: 5000,})
+        this.matDialog.open(LoginComponent);
+      }else {
+        this.snackBar.open(data.msg, null, {
+          duration: 2000,
+        });
+      }
+    });
+  }
 
   onCloseCancel() {
     this.thisDiaLogRef.close('Cancel');
   }
 
-  //PRIAVTE METHODS
+  //PRIAVTE METHODS TOGGLE BETWEEN SIGN IN AND REGISTER
   wantToSignIn(){
-    if(this.isCreatingNewAccount == true)
+    if(this.isCreatingNewAccount == true){
       this.isCreatingNewAccount = !this.isCreatingNewAccount;
+    }
   }
 
   wantToRegister(){

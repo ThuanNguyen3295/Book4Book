@@ -48,4 +48,5 @@ export class AuthService {
   getUserZipCode(){
     return this.loadUser().zipcode
   }
+  
 }
