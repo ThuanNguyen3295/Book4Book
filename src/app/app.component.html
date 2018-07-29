@@ -17,6 +17,9 @@
         <button *ngIf="isLoggedIn()" class="menu-button" mat-icon-button [matMenuTriggerFor]="userMenu">
             <mat-icon>more_vert</mat-icon>
         </button>
+        <button *ngIf="!isLoggedIn()" class="menu-button-sign-in" mat-icon-button [matMenuTriggerFor]="userSignInMenu">
+            <mat-icon>more_vert</mat-icon>
+        </button>
             <!--SUB MENU: User options-->
         <mat-menu #userMenu="matMenu">
             <ng-template matMenuContent>
@@ -29,7 +32,17 @@
                     Sign out
                 </button>
             </ng-template>
-        </mat-menu>          
+        </mat-menu>
+        
+        <mat-menu #userSignInMenu="matMenu">
+            <ng-template matMenuContent>
+                <button mat-menu-item (click)="goToSignIn()">
+                    <mat-icon>exit_to_app</mat-icon>
+                    Sign In
+                </button>
+            </ng-template>
+        </mat-menu>
+        
     </mat-toolbar>
     
     <mat-sidenav-container >

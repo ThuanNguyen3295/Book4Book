@@ -24,7 +24,7 @@ mat-card {
         font: bold 1.2em;
         height: 50px;
         border-radius: 0px !important;   
-        background-image: linear-gradient(to right, #81b6e0 0%, #a6c6e2 51%, #81b6e0 100%)
+        background-image: linear-gradient(to right, #314755 0%, #26a0da 51%, #314755 100%);
     }
         /* THIS IS THE RIBBON */
         .button-navigate-login::before {
@@ -70,18 +70,11 @@ mat-card {
             border-top: 25px solid transparent;
             border-bottom: 25px solid transparent;
         }
-    .button-navigate-login:focus {
-        background-image: linear-gradient(to right, #314755 0%, #26a0da 51%, #314755 100%);
-    }
-    .button-navigate-register:focus {
-        background-image: linear-gradient(to right, #314755 0%, #26a0da 51%, #314755 100%);
-    }
 
 
     .button-navigate-cancel {
         color: black;
         background-color: white;
-        outline: 2px black !important;
     }
 
 
@@ -111,8 +104,6 @@ mat-spinner {
     top: 40%;
 }
 
-/* TESTING REGISTER */
-
 .slide-in {
     animation: slideIn ease-in-out 1;
     animation-duration: 400ms;
@@ -134,4 +125,29 @@ mat-spinner {
 
 @keyframes slideOut{
     100%{transform: translate3d(0,-250%,0)}          
+}
+
+.button-navigate-bottom {
+    padding-top: -15px;
+    padding-bottom: 15px;
+    display: flex;
+    justify-content: center; 
+}
+/* TESING RESPONSIVENESS */
+@media screen and (max-width: 500px) {
+    .login-dialog {
+        width: 220px;
+        height: auto;
+        padding-bottom: 20px;
+    }
+
+    mat-card {
+        width:100%;
+    }
+
+    .mat-card-spacer {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
 }
