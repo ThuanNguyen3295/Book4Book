@@ -1,0 +1,89 @@
+.profile-main {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    padding: 5px 5px 0 2px;   
+}
+.profile {
+    width: 68%;
+    height: 100%;
+    /* border: 1px solid lightgray; */
+    border-radius: 2px;
+}
+.profile .profile-info{
+    height: 20%;
+    width: 100%;
+    background: linear-gradient(to right, rgb(158, 218, 233) 0%, #EAECC6 51%, rgb(151, 212, 228) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.profile-info .user-profile-image{
+    width: 150px;
+    height: 150px;
+    margin-right: 20px;
+    border: 4px solid black;
+    border-radius: 75px; 
+}
+
+.profile-body mat-expansion-panel{
+    margin-top: 10px;
+}
+.requested-books, .posted-books{
+    display: flex;
+    flex-flow: row wrap;
+}
+.requested-books mat-card, .posted-books mat-card{
+    width: 100px;
+    padding: 0 !important;
+    margin-bottom: 5px;
+    margin-right: 5px; 
+    text-align: center !important;
+}
+.requested-books .mat-card-footer, .posted-books .mat-card-footer{
+    margin: 0 !important;
+} 
+.requested-books img, .posted-books img{
+    width: 100px;
+    height: 140px;
+}
+.requested-books i, .posted-books i{
+    color: rgb(253, 116, 116);
+}
+
+/* SETTING CSS START HERE */
+.setting-div {
+    width: 30%;
+    height: calc(80% - 10px);
+    align-self: flex-end;
+    overflow: visible;
+    /* background-color: lightcoral; */
+    border: 1px solid lightgray;
+    border-radius: 2px;
+}
+.header {
+    display: inline-flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+.header i{
+    margin: 0 5px 4px 0;  
+}
+.setting-body{
+    padding: 20px;
+    width: 100%;
+}
+.info{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+.info .key{
+    width: 40%;
+}
+.info .value{
+    width: 50%;
+    opacity: 0.7;
+}
