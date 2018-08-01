@@ -1,37 +1,23 @@
-<div class="" >
+<div class="app-page" >
     <mat-toolbar>
         <!-- <button mat-icon-button (click)="test()"><mat-icon>menu</mat-icon></button> -->
-        <!-- <button mat-icon-button (click)="sidenavleft.toggle(); sidenavright.toggle()"><mat-icon>menu</mat-icon></button> -->
-
-        <button mat-icon-button [matMenuTriggerFor]="sideNavMenu">
-            <mat-icon>menu</mat-icon>
-        </button>
-        <mat-menu #sideNavMenu="matMenu">
-            <ng-template matMenuContent>
-                <button mat-menu-item (click)="sidenavleft.toggle();">
-                    Toggle Left Menu
-                </button>
-                <button mat-menu-item (click)="sidenavright.toggle();">
-                    Toggle Right Menu
-                </button>
-                <button mat-menu-item (click)="sidenavleft.toggle(); sidenavright.toggle()">
-                    Toggle Both
-                </button>
-            </ng-template>
-        </mat-menu>  
+        <button mat-icon-button (click)="sidenavleft.toggle()"><mat-icon>menu</mat-icon></button>
 
         <img src="../assets/images/logo.png" alt="LOGO" class="logo">
-        <div class="app-name">
+        <!-- <div class="app-name">
             BOOKS 4 BOOKS
-        </div>            
+        </div>  -->
+        <span class="toolbar-spacer"></span>           
+        <app-searchbar class="search-box"></app-searchbar>
         <span class="toolbar-spacer"></span>
-        <app-searchbar></app-searchbar>
-        <span class="toolbar-spacer"></span>
-        <button class="sign-in-button" mat-flat-button (click)="goToSignIn()">
+        <button *ngIf="!isLoggedIn()" class="sign-in-button" mat-flat-button (click)="goToSignIn()">
             Sign In
         </button>
-        <img src="http://www.marywood.edu/web/staff/shannon/images/shannonprofile_circle.png" alt="PROFILE PICTURE" class="profile-picture">
-        <button class="menu-button" mat-icon-button [matMenuTriggerFor]="userMenu">
+        <img *ngIf="isLoggedIn()" src="http://www.marywood.edu/web/staff/shannon/images/shannonprofile_circle.png" alt="PROFILE PICTURE" class="profile-picture">
+        <button *ngIf="isLoggedIn()" class="menu-button" mat-icon-button [matMenuTriggerFor]="userMenu">
+            <mat-icon>more_vert</mat-icon>
+        </button>
+        <button *ngIf="!isLoggedIn()" class="menu-button-sign-in" mat-icon-button [matMenuTriggerFor]="userSignInMenu">
             <mat-icon>more_vert</mat-icon>
         </button>
             <!--SUB MENU: User options-->
@@ -41,12 +27,22 @@
                     <mat-icon>settings</mat-icon>
                     Settings
                 </button>
-                <button mat-menu-item>
+                <button mat-menu-item (click)="logout()">
                     <mat-icon>power_settings_new</mat-icon>
                     Sign out
                 </button>
             </ng-template>
-        </mat-menu>          
+        </mat-menu>
+        
+        <mat-menu #userSignInMenu="matMenu">
+            <ng-template matMenuContent>
+                <button mat-menu-item (click)="goToSignIn()">
+                    <mat-icon>exit_to_app</mat-icon>
+                    Sign In
+                </button>
+            </ng-template>
+        </mat-menu>
+        
     </mat-toolbar>
     
     <mat-sidenav-container >
@@ -58,10 +54,13 @@
                 <a mat-raised-button color="primary" routerLink="/post">
                     <i class="material-icons">
                         create </i>Post</a>
-                <a mat-raised-button color="primary" routerLink="">
+                <a mat-raised-button color="primary" routerLink="/profile">
+                    <i class="material-icons">
+                        account_box</i>Profile</a>
+                <a mat-raised-button color="primary" (click)="openFilterDialog()" >
                     <i class="material-icons">
                         search</i>Search Filter</a>
-                <a mat-raised-button color="primary" routerLink="">
+                <a mat-raised-button color="primary" routerLink="/setting">
                     <i class="material-icons">
                         settings</i>Settings</a>
                 <a mat-raised-button color="primary" routerLink="">
@@ -75,7 +74,7 @@
             <router-outlet>
             </router-outlet>
         </mat-sidenav-content>
-        <mat-sidenav #sidenavright class="sidenavright" mode="side" position="end"  opened>
+        <!-- <mat-sidenav #sidenavright class="sidenavright" mode="side" position="end"  opened>
             <div class="button-list">
                 <button mat-raised-button>Basic</button>
                 <button mat-raised-button color="primary">Primary</button>
@@ -84,9 +83,9 @@
                 <button mat-raised-button disabled>Disabled</button>
                 <a mat-raised-button routerLink="">Link</a>
             </div>
-        </mat-sidenav>
+        </mat-sidenav> -->
     </mat-sidenav-container>
-    <mat-toolbar >
+    <mat-toolbar class="footer" >
         <div class="footer" style="width: 100%; text-align:center">
             <p style="font-size: 0.7em">© 2018 Copyright: Parker Nguyen & Evan Nguyen</p>
         </div>

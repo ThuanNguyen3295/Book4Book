@@ -15,4 +15,7 @@ export class SearchbarComponent implements OnInit {
     console.log(this.searchValue)
     this.utilService.onSearchValueChange(this.searchValue);
   }
+  onTypingSearch(){
+    this.utilService.onSearchValueChange(this.searchValue);
+  }
 }

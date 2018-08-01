@@ -1,0 +1,49 @@
+<div class="custom-container">
+  <div class="detail-main">
+    <div class="top-view">
+        <img class="book-cover" [src]="book.image" alt="">
+        <agm-map [latitude]="lat" [longitude]="lng" [zoom]="10">
+          <agm-marker [latitude]="lat" [longitude]="lng" >
+              <agm-info-window >
+                  {{book.title}}
+              </agm-info-window>
+          </agm-marker>
+        </agm-map>
+    </div>
+    <div class="detail-body">
+      <!-- Book detail -->
+      <mat-card>
+        <mat-card-title>{{book.title}}</mat-card-title>
+        <mat-card-content>
+          <p>Owner Username: {{book.ownerName}}</p>
+          <p>Date posted: {{book.create_date}}</p>
+          <p>Genre: {{book.genre}}</p>
+          <p>Description: To be added in</p>
+          <p></p>
+        </mat-card-content>
+      </mat-card>
+      <!-- Drop Down Fields for requesting book -->
+      <mat-accordion>
+        <mat-expansion-panel [expanded]="true">
+          <mat-expansion-panel-header>
+            <mat-panel-title style="font-size: 1.5rem; color:#2980B9">
+              <b>Request</b>
+            </mat-panel-title>
+            <mat-panel-description>
+              Fill out a message and contact information
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <mat-form-field>
+              <textarea matInput placeholder="Message"></textarea>
+            </mat-form-field>
+            <mat-slide-toggle>Via email</mat-slide-toggle> <mat-slide-toggle>Via phone</mat-slide-toggle>
+            <mat-form-field>
+              <input required matInput placeholder="Contact Info">
+            </mat-form-field>
+            <button mat-raised-button color="primary">Confirm</button>
+            <button mat-raised-button >Back Home</button>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+  </div>
+</div>

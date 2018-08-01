@@ -97,6 +97,8 @@ import { HomeComponent } from './home/home.component';
 import { AuthService } from '../app/services/auth.service'
 import { UtilService } from '../app/services/util.service'
 import { RequestService } from '../app/services/request.service'
+import { FilterService } from '../app/services/filter.service'
+import { LocationService } from '../app/services/location.service'
 import { HttpModule} from '@angular/http';
 import { PostComponent } from './post/post.component';
 import { AuthGuard } from './guard/auth.guard';
@@ -104,18 +106,18 @@ import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { MatFormFieldModule} from '@angular/material/form-field';
 import { SearchbarComponent } from './searchbar/searchbar.component';
 import { LoginComponent } from './login/login.component';
-
+import { FilterOptionsDialog } from './filterOptions/filter.component'
+import { AgmCoreModule } from '@agm/core';
+import { SettingComponent } from './setting/setting.component';
+import { DetailpageComponent } from './detailpage/detailpage.component';
+import { ProfileComponent } from './profile/profile.component'
 
 const appRoutes: Routes = [
   {path:'', component: HomeComponent},
-  // {path:'register', component: RegisterComponent},
-  // {path:'login', component: LoginComponent},
-  // {path:'dashboard', component: DashboardComponent, canActivate:[AuthGuard]},
-  // {path:'profile', component: ProfileComponent, canActivate:[AuthGuard]},
-  // {path:'post', component: PostComponent, canActivate:[AuthGuard]},
-  {path:'post', component: PostComponent},
-
-  // {path:'detail/:id', component: DetailPageComponent},
+  {path:'setting', component: SettingComponent, canActivate:[AuthGuard]},
+  {path:'profile', component: ProfileComponent, canActivate:[AuthGuard]},
+  {path:'post', component: PostComponent, canActivate:[AuthGuard]},
+  {path:'detail/:id', component: DetailpageComponent},
   // {path:'about', component: AboutComponent},
   // {path:'**', component: Error404Component}
 ]
@@ -125,7 +127,11 @@ const appRoutes: Routes = [
     HomeComponent,
     PostComponent,
     SearchbarComponent,
-    LoginComponent
+    LoginComponent,
+    FilterOptionsDialog,
+    SettingComponent,
+    DetailpageComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -137,12 +143,17 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     MatFormFieldModule,
     RouterModule.forRoot(appRoutes),
-    HttpModule
+    HttpModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyDf-yIqxErTkbWzKhLox7nAANnrfDIY190&libraries',
+      libraries: ['geometry']
+    })
   ],
   entryComponents:[
     LoginComponent,
+    FilterOptionsDialog
   ],
-  providers: [AuthService, RequestService, UtilService],
+  providers: [AuthService, RequestService, UtilService, FilterService, LocationService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

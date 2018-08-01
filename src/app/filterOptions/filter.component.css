@@ -1,0 +1,40 @@
+.filter-main{
+    max-width: 500px; 
+    height: auto;
+    /* padding-bottom: 20px; */
+}
+.selection-div {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    flex-flow: row wrap;
+}
+.selection-div mat-list-option{
+    width: 50%;
+    padding: 0 5px 0 5px; 
+}
+.filter-actions{
+    justify-content: center;
+}
+.filter-actions button {
+    margin: 5px;
+}
+.mile-div{
+    width: 50%;
+    margin: auto;
+}
+.mile-radius-group{
+    display: inline-flex;
+    flex-direction: column;
+    margin: 10px;
+}
+.mile-radius-group mat-radio-button{
+    margin: 10px;
+}
+.mat-tab-label, .mat-tab-label-active{
+    min-width: 0!important;
+    padding: 3px!important;
+    margin-left: 30px!important;
+}

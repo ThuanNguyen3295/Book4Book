@@ -1,5 +1,7 @@
 .full{
-    height: 86vh;
+    /* height: 86vh; */
+    /* height: 100%; */
+    min-height: 91vh;
     background:linear-gradient(
         rgba(214, 234, 248, 0.95),
         rgba(233, 228, 255, 0.6)           
@@ -8,16 +10,26 @@
     left: 0;
     right: 0;
     bottom: 0;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    padding: 20px;
 }
 
-.book-card {
-    max-width: 80%;
-    margin-top: 20px;
+.card-div {
+    margin-left: 50px;
+    margin-bottom: 20px;  
 }
 
-.container {
-    margin: auto
+.book-cover {
+    height: 280px !important;
+    width: 200px;
 }
+
 mat-card{
     margin: auto;
     text-align: center !important;
@@ -28,7 +40,7 @@ mat-card .mat-card-image{
 }
 
 mat-card:hover {
-    transform: scale(1.1, 1.1) !important;
+    transform: scale(1.1, 1.05) !important;
 }
 mat-card button{
     margin: 3px 0 3px 0; 
@@ -40,10 +52,6 @@ mat-card:hover button{
     background-color: orange;
 }
 
-.book-cover{
-    object-fit: cover;
-    height: 270px !important;
-}
 mat-card-content{
     height: 10px !important;
     margin-bottom: 0 !important; 
@@ -56,4 +64,102 @@ mat-spinner {
     left: 50%;
     top: 40%;
 }
+agm-map {
+    height: 200px;
+    width: 400px;
+    /* height: 200px; */
+    /* width: 100%; */
+    /* max-width: 500px;  */
+}
+.map-view{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    /* width: 50%; */
+    box-shadow: 0 0 20px 0 rgba(72,94,116,0.7);
+}
+.map-actions{
+    position: absolute;
+    bottom: 17px;
+    right: 40px;
+}
+.full-screen{
+    width: 100%;
+    height: 100%;
+}
+.full-screen agm-map{
+    width: 100%;
+    height: 100%;
+}
 
+@media screen and (max-width: 414px){
+    .full {
+        justify-content: flex-start ; 
+        padding: 0;
+    }
+    .card-div {
+        margin-left: 20px;
+        margin-bottom: 10px;  
+    }
+    .book-cover {
+        height: 160px !important;
+        width: 120px;
+    }
+}
+
+@media screen and (max-width: 768px){
+    .full {
+        justify-content: flex-start ; 
+    }
+    .card-div {
+        margin-left: 30px;
+        margin-bottom: 20px;  
+    }
+    .book-cover {
+        height: 180px !important;
+        width: 140px;
+    }
+}
+
+
+@media screen and (min-width: 1024px){
+    .full {
+        justify-content: flex-start ; 
+    }
+    .card-div {
+        margin-left: 20px;
+        margin-bottom: 20px;  
+    }
+    .book-cover {
+        height: 220px !important;
+        width: 170px;
+    }
+}
+
+@media (min-width: 1024px){
+    .full {
+        justify-content: flex-start; 
+    }
+    .card-div {
+        margin-left: 20px;
+        margin-bottom: 20px;  
+    }
+    .book-cover {
+        height: 220px !important;
+        width: 170px;
+    }
+}
+
+@media (min-width: 1440px){
+    .full {
+        justify-content: flex-start; 
+    }
+    .card-div {
+        margin-left: 50px;
+        margin-bottom: 20px;  
+    }
+    .book-cover {
+        height: 280px !important;
+        width: 210px;
+    }
+}

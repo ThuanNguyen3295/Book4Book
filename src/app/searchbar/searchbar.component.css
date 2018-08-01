@@ -1,7 +1,7 @@
 /* START SEARCH BOX */
 .search-box {
-    width: 500px;
-    height: 50px;
+    width: 400px;
+    height: 40px;
 }
 
     .search-container{
@@ -13,7 +13,7 @@
 
         .search-container input{
             width: 100%;
-            height: 50px;
+            height: 40px;
             background: white;
             border: none;
             font-size: 12pt;
@@ -32,7 +32,7 @@
             border-bottom-left-radius: 0px;          
             border: none;
             background: #2667df;
-            height: 50px;
+            height: 40px;
             width: 50px;
             color: white;
             opacity: 0;
@@ -44,4 +44,16 @@
             outline: none;
             opacity: 1;
             margin-left: -50px;
-        } 
+        }
+.logo {
+    padding-top: 6px;
+    width: 100px;
+    height: 100px;
+} 
+
+@media screen and (max-width: 1200px){
+    .search-box {
+        width: 250px;
+        height: 30px;
+    }
+}

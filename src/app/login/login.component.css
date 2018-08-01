@@ -1,0 +1,182 @@
+.login-dialog {
+    width: 350px;
+    height: auto;
+    padding-bottom: 20px;
+}
+    
+
+mat-card {
+    height: auto;
+    padding: 0px;
+    /* background-image: linear-gradient(to right, #4CB8C4 0%, #3CD3AD 51%, #4CB8C4 100%); */
+    /* background-image: linear-gradient(to right, rgb(255, 231, 197) 0%, rgb(245, 237, 168) 51%, rgb(240, 177, 89) 100%) */
+}
+
+
+.button-navigate {
+    padding-top: -15px;
+    padding-bottom: 15px;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    justify-content: center;  
+}
+    .button-navigate-login, .button-navigate-register {
+        width: 50%;
+        font: bold 1.2em;
+        height: 50px;
+        border-radius: 0px !important;   
+        background-image: linear-gradient(to right, #314755 0%, #26a0da 51%, #314755 100%);
+    }
+        /* THIS IS THE RIBBON */
+        .button-navigate-login::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -16px;
+            border-left: 8px solid transparent;
+            border-right: 8px solid #3CD3AD;
+            border-top: 8px solid #3CD3AD;
+            border-bottom: 8px solid transparent;
+        }
+        /* THIS IS THE RIBBON */
+        .button-navigate-login::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0px;
+            border-left: 25px solid transparent;
+            border-right: 25px solid #3CD3AD;
+            border-top: 25px solid transparent;
+            border-bottom: 25px solid transparent;
+        }
+        /* THIS IS THE RIBBON */
+        .button-navigate-register::before {
+            content: "";
+            position: absolute;
+            right: 0;
+            bottom: -16px;
+            border-left: 8px solid #3CD3AD;
+            border-right: 8px solid transparent;
+            border-top: 8px solid #3CD3AD;
+            border-bottom: 8px solid transparent;
+        }
+        /* THIS IS THE RIBBON */
+        .button-navigate-register::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0px;
+            border-left: 25px solid #3CD3AD;
+            border-right: 25px solid transparent;
+            border-top: 25px solid transparent;
+            border-bottom: 25px solid transparent;
+        }
+
+
+    .button-navigate-cancel {
+        color: black;
+        background-color: white;
+    }
+
+
+
+/* Spacer helps to align items: Left Right Center */
+.mat-card-spacer {
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+/* FIELDS */
+.form-login {
+    padding-left: 25px;
+    padding-right: 15px;
+}
+
+.form-field {
+    width: 100%;
+}
+
+.mat-dialog-container {
+    background: transparent !important;
+}
+mat-spinner {
+    position: fixed;
+    left: 50%;
+    top: 40%;
+}
+
+.slide-in {
+    animation: slideIn ease-in-out 1;
+    animation-duration: 400ms;
+}
+
+
+.slide-out {
+    animation: slideOut ease-in-out 1;
+    animation-duration: 400ms;
+    opacity: 0;
+    display: none;        
+    transition: all 400ms ease-in-out;
+    transition-delay: 400ms;
+}
+
+@keyframes slideIn{
+    0%{transform: translate3d(0,-100%,0)}
+}
+
+@keyframes slideOut{
+    100%{transform: translate3d(0,-250%,0)}          
+}
+
+.button-navigate-bottom {
+    padding-top: -15px;
+    padding-bottom: 15px;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    justify-content: center; 
+}
+/* TESING RESPONSIVENESS */
+@media screen and (max-width: 500px) {
+    .login-dialog {
+        width: 220px;
+        height: auto;
+        padding-bottom: 20px;
+    }
+
+    mat-card {
+        width:100%;
+    }
+
+    .mat-card-spacer {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    .button-navigate-login::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -8px;
+        border-left: 4px solid transparent;
+        border-right: 4px solid #3CD3AD;
+        border-top: 4px solid #3CD3AD;
+        border-bottom: 4px solid transparent;
+    }
+    .button-navigate-register::before {
+        content: "";
+        position: absolute;
+        right: 0;
+        bottom: -8px;
+        border-left: 4px solid #3CD3AD;
+        border-right: 4px solid transparent;
+        border-top: 4px solid #3CD3AD;
+        border-bottom: 4px solid transparent;
+    }
+
+}

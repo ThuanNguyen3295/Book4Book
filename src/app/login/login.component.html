@@ -1,19 +1,44 @@
-<div>
-    <!-- HEADER -->
-    <div>
+<mat-spinner *ngIf="loading"></mat-spinner>
+<div class="login-dialog">
+    <mat-card class="login-container">
+        <mat-card-actions class="button-navigate">
+            <button class="button-navigate-login" mat-flat-button (click)="wantToSignIn()">Sign In</button>
+            <span class="mat-card-spacer"></span>
+            <button class="button-navigate-register" mat-flat-button (click)="wantToRegister()">Register</button>
+        </mat-card-actions>
 
-    </div>>
+        <mat-card-content>
+            <form class="form-login" [formGroup]="userCredentials">
+                <mat-form-field class="form-field">
+                    <input matInput required formControlName="username"  maxlength="10" placeholder="Username" type="text">
+                </mat-form-field>
+                <mat-form-field class="form-field">
+                    <input matInput required formControlName="password" placeholder="Password" type="password">
+                </mat-form-field>
 
+                <mat-form-field class="form-field" [ngClass]="{'slide-in': isCreatingNewAccount, 'slide-out': !isCreatingNewAccount}">
+                    <input matInput required formControlName="email" placeholder="Email" type="email">
+                </mat-form-field>
 
-    <!-- BUTTONS -->
-    <div>
-        <button>Confirm</button>
-        <button>Cancel</button>
-    </div>
-    
-    <!-- SOCIAL MEDIA CONNECT -->
-    <div>
-        
-    </div>
+                <mat-form-field class="form-field" [ngClass]="{'slide-in': isCreatingNewAccount, 'slide-out': !isCreatingNewAccount}">
+                    <input matInput required formControlName="zipcode" placeholder="Zipcode" maxlength="5" minlength="5" type="tel" >
+                </mat-form-field>
+            </form>
+        </mat-card-content>
+
+        <mat-card-footer class="button-navigate-bottom">
+            <button 
+                class="button-navigate-bottom-submit" 
+                [disabled]="!(userCredentials.controls.username.valid && userCredentials.controls.password.valid)" 
+                (click)="onCloseConfirm()" mat-flat-button color="primary" *ngIf="!isCreatingNewAccount">Submit
+            </button>
+            <button 
+            class="button-navigate-bottom-submit" 
+            [disabled]="!(userCredentials.valid)" 
+            (click)="onCloseConfirm()" mat-flat-button color="primary" *ngIf="isCreatingNewAccount">Register
+            </button>
+            <span class="mat-card-spacer"></span>
+            <button class="button-navigate-bottom-cancel" (click)="onCloseCancel()" mat-stroked-button>Cancel</button>
+        </mat-card-footer>
+</mat-card>
 </div>
-
