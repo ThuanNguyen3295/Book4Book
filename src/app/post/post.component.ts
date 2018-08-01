@@ -28,14 +28,14 @@ export class PostComponent implements OnInit {
               private authService: AuthService        
   ) {
 
-    this.bookFormGroup = this.formBuilder.group({
-      title: ['', Validators.compose([Validators.required,Validators.pattern('[a-zA-Z0-9 ]*'), Validators.minLength(5), Validators.maxLength(30)])],
-      description: [''],
-      genre: ['', Validators.compose([Validators.required])],
-      version: [''],
-      img: ['']
-    });
-   }
+  this.bookFormGroup = this.formBuilder.group({
+    title: ['', Validators.compose([Validators.required,Validators.pattern('[a-zA-Z0-9 ]*'), Validators.minLength(5), Validators.maxLength(30)])],
+    description: [''],
+    genre: ['', Validators.compose([Validators.required])],
+    version: [''],
+    img: ['']
+  });
+  }
 
   ngOnInit() {
   }

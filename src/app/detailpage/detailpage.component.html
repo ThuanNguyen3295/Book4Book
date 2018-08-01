@@ -2,7 +2,12 @@
   <div class="detail-main">
     <div class="top-view">
         <img class="book-cover" [src]="book.image" alt="">
-        <agm-map [latitude]="32.232" [longitude]="-112.232" [zoom]="10">
+        <agm-map [latitude]="lat" [longitude]="lng" [zoom]="10">
+          <agm-marker [latitude]="lat" [longitude]="lng" >
+              <agm-info-window >
+                  {{book.title}}
+              </agm-info-window>
+          </agm-marker>
         </agm-map>
     </div>
     <div class="detail-body">
@@ -33,7 +38,7 @@
             </mat-form-field>
             <mat-slide-toggle>Via email</mat-slide-toggle> <mat-slide-toggle>Via phone</mat-slide-toggle>
             <mat-form-field>
-              <input matInput placeholder="Contact Info">
+              <input required matInput placeholder="Contact Info">
             </mat-form-field>
             <button mat-raised-button color="primary">Confirm</button>
             <button mat-raised-button >Back Home</button>

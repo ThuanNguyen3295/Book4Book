@@ -1,9 +1,29 @@
+.post-container{
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
 .form{
-    margin-top: 100px;
+    /* margin-top: 100px; */
     background-color: rgb(228, 248, 255);
     padding: 20px;
     box-shadow: 0 0 20px 0 rgba(72,94,116,0.7);
-    width: 80%;  
+    width: 60%;
+}
+form{
+    display: flex !important;
+}
+.book-detail{
+    width: 60%;
+}
+.book-image{
+    width: 40%;
 }
 
 mat-form-field{
@@ -36,12 +56,25 @@ mat-form-field{
     text-align: center;
 }
 .preview img{
-    width:200px;
-    height:260px;
+    /* width:200px;
+    height:260px; */
+    width: 40%;
+    height: 80%;
 }
 mat-spinner {
     position: fixed;
     left: 50%;
     top: 40%;
+}
+@media screen and (max-width: 1024px){
+    .form{
+        width: 90%;
+    }
+}
+@media screen and (max-width: 624px){
+    .form{
+        width: 100%;
+        margin: 5px;
+    }
 }
 
