@@ -4,8 +4,9 @@ import { MatSidenav} from '@angular/material';
 import { HostListener } from '@angular/core'
 import { LoginComponent } from '../app/login/login.component';
 import { MatDialog } from '@angular/material';
-import { tokenNotExpired } from 'angular2-jwt';
 import { FilterOptionsDialog } from './filterOptions/filter.component'
+import {JwtHelperService} from '@auth0/angular-jwt'
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -17,7 +18,7 @@ export class AppComponent {
   dialogResult="";
 
   constructor(
-    public matDialog: MatDialog,
+    public matDialog: MatDialog, private jwt: JwtHelperService
   ){}
 
   goToSignIn() {
@@ -32,7 +33,7 @@ export class AppComponent {
     })
   }
   isLoggedIn(){
-    return tokenNotExpired('id_token');
+    return this.jwt.isTokenExpired(localStorage.getItem('token'));
   }
   logout(){
     localStorage.clear();

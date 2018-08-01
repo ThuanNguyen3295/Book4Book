@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/map'
 import { Http, Headers, ResponseContentType, HttpModule } from '@angular/http';     
-import {tokenNotExpired} from 'angular2-jwt';
+// import {tokenNotExpired} from 'angular2-jwt';
+import {JwtHelperService} from '@auth0/angular-jwt'
 import { map } from "rxjs/operators";
 
 @Injectable({
@@ -10,7 +11,7 @@ import { map } from "rxjs/operators";
 export class AuthService {
   authToken: any;
   user: any;
-  constructor(private http: Http) { }
+  constructor(private http: Http, private jwt: JwtHelperService) { }
 
   authenticateUser(user){
     let headers = new Headers(); //header for the json object
@@ -32,7 +33,7 @@ export class AuthService {
     return this.user
   }
   loggedIn(){
-    return tokenNotExpired('id_token');
+    return this.jwt.isTokenExpired(localStorage.getItem('token'));
   } 
   storeUserData(token, user){
     localStorage.setItem('id_token', token);
