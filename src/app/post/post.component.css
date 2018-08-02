@@ -11,7 +11,7 @@
     height: 100%;
 }
 .form{
-    background-color: rgb(228, 248, 255);
+    background:  linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(110,219,216,1) 0%, rgba(246,239,225,1) 100%);
     padding: 20px;
     box-shadow: 0 0 20px 0 rgba(72,94,116,0.7);
     width: 60%;

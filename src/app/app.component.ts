@@ -20,11 +20,13 @@ export class AppComponent implements AfterViewInit {
   constructor(
     public matDialog: MatDialog, private jwt: JwtHelperService
   ){}
-  
+
   ngAfterViewInit() {
-    if (window.screen.width < 500){
-      this.sideNav.close();
-    }
+    window.setTimeout(()=>{ // this fix some error related to "expression has changes" 
+      if (window.screen.width < 500){
+        this.sideNav.close();
+      }
+    })
   }
 
   goToSignIn() {
