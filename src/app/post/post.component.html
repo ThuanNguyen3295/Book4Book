@@ -48,10 +48,10 @@
                 <mat-form-field>
                     <input formControlName="version" matInput placeholder="Version">
                 </mat-form-field>
-                <div class="button-submit">
+                <!-- <div class="button-submit">
                         <button mat-raised-button type="submit" color="primary" [disabled]="!bookFormGroup.valid ">Post</button>
                         <a mat-raised-button style="text-decoration: none" routerLink="">Cancel</a>
-                </div>
+                </div> -->
             </div>
             <div class="book-image">
                 <div class="select-image-div">
@@ -69,5 +69,9 @@
                 </div>
             </div>
         </form>  
+        <div class="button-submit">
+            <button mat-raised-button type="submit" (click)="onPostNewBook()" color="primary" [disabled]="!bookFormGroup.valid ">Post</button>
+            <a mat-raised-button style="text-decoration: none" routerLink="">Cancel</a>
+        </div>
     </div>
 </div>
