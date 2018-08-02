@@ -47,7 +47,7 @@
     
     <mat-sidenav-container >
         <mat-sidenav #sidenavleft mode="side" opened>
-            <div class="button-list">
+            <div class="button-list" (click)="sideNavOnClick()">
                 <a mat-raised-button color="primary" routerLink="">
                     <i class="material-icons">
                         home </i>Home</a>

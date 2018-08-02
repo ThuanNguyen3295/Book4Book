@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, AfterViewInit } from '@angular/core';
 import { FormBuilder, FormGroup} from '@angular/forms';
 import { MatSidenav} from '@angular/material';
 import { HostListener } from '@angular/core'
@@ -12,14 +12,20 @@ import {JwtHelperService} from '@auth0/angular-jwt'
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements AfterViewInit {
   title = 'app';
   //Can you this to passed the confirm or denied, use tooltip
   dialogResult="";
-
+  @ViewChild('sidenavleft') public sideNav:MatSidenav;
   constructor(
     public matDialog: MatDialog, private jwt: JwtHelperService
   ){}
+  
+  ngAfterViewInit() {
+    if (window.screen.width < 500){
+      this.sideNav.close();
+    }
+  }
 
   goToSignIn() {
     let dialogRef = this.matDialog.open(LoginComponent, {
@@ -44,5 +50,11 @@ export class AppComponent {
   }
   openFilterDialog(){
     this.matDialog.open(FilterOptionsDialog)
+  }
+  sideNavOnClick(){
+    //only close the side nav on click if the screen is less than 500 ie mobile
+    if (window.screen.width < 500){
+      this.sideNav.close();
+    }
   }
 }
