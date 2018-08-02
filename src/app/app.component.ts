@@ -32,8 +32,12 @@ export class AppComponent {
       this.dialogResult=result;
     })
   }
-  isLoggedIn(){
-    return this.jwt.isTokenExpired(localStorage.getItem('token'));
+  isTokenExpired(){
+    var token = localStorage.getItem('id_token')
+    if (token == null){
+      return true
+    }
+    return this.jwt.isTokenExpired(token);
   }
   logout(){
     localStorage.clear();

@@ -10,14 +10,14 @@
         <span class="toolbar-spacer"></span>           
         <app-searchbar class="search-box"></app-searchbar>
         <span class="toolbar-spacer"></span>
-        <button *ngIf="!isLoggedIn()" class="sign-in-button" mat-flat-button (click)="goToSignIn()">
+        <button *ngIf="isTokenExpired()" class="sign-in-button" mat-flat-button (click)="goToSignIn()">
             Sign In
         </button>
-        <img *ngIf="isLoggedIn()" src="http://www.marywood.edu/web/staff/shannon/images/shannonprofile_circle.png" alt="PROFILE PICTURE" class="profile-picture">
-        <button *ngIf="isLoggedIn()" class="menu-button" mat-icon-button [matMenuTriggerFor]="userMenu">
+        <img *ngIf="!isTokenExpired()" src="http://www.marywood.edu/web/staff/shannon/images/shannonprofile_circle.png" alt="PROFILE PICTURE" class="profile-picture">
+        <button *ngIf="!isTokenExpired()" class="menu-button" mat-icon-button [matMenuTriggerFor]="userMenu">
             <mat-icon>more_vert</mat-icon>
         </button>
-        <button *ngIf="!isLoggedIn()" class="menu-button-sign-in" mat-icon-button [matMenuTriggerFor]="userSignInMenu">
+        <button *ngIf="isTokenExpired()" class="menu-button-sign-in" mat-icon-button [matMenuTriggerFor]="userSignInMenu">
             <mat-icon>more_vert</mat-icon>
         </button>
             <!--SUB MENU: User options-->

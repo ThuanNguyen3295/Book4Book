@@ -34,8 +34,11 @@ export class AuthService {
     this.user = JSON.parse(localStorage.getItem('user'));
     return this.user
   }
-  loggedIn(){
-    return this.jwt.isTokenExpired(localStorage.getItem('token'));
+  isTokenExpired(){
+    var token = localStorage.getItem('id_token')
+    if (token == null)
+      return true
+    return this.jwt.isTokenExpired(token);
   } 
   storeUserData(token, user){
     localStorage.setItem('id_token', token);
