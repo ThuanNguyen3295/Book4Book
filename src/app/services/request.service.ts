@@ -11,18 +11,20 @@ export class RequestService {
   private cachedBooks: Book[];
   private cachedImages: any[]
   private imageCount: number = 0;
+  local = "http://localhost:8000/users/"
+  api = "https://dry-plateau-56158.herokuapp.com/users/"
   constructor(private http: Http, private authService: AuthService) { }
 
   getBooks(){
     let headers = new Headers();
     headers.append('Content-Type', 'application/json')
-    return this.http.get('http://localhost:8000/users/books', {headers: headers}).pipe(map(res=>res.json()));
+    return this.http.get(this.api + 'books', {headers: headers}).pipe(map(res=>res.json()));
   }
 
   getImage(id){
     let headers = new Headers();
     headers.append('Content-Type', 'application/json')
-    return this.http.get('http://localhost:8000/users/getImage/' +id,{headers: headers, responseType: ResponseContentType.Blob})
+    return this.http.get(this.api + 'getImage/' +id,{headers: headers, responseType: ResponseContentType.Blob})
   }
   postBook(fd: FormData){
 
@@ -30,7 +32,7 @@ export class RequestService {
     let headers = new Headers();
     headers.append('Authorization', token);
     // headers.append('Content-Type', 'application/json');
-    return this.http.post('http://localhost:8000/users/post',fd, {headers: headers}).pipe(map(res=>res.json()));
+    return this.http.post(this.api + 'post',fd, {headers: headers}).pipe(map(res=>res.json()));
   }
 
   getCachedBooks(){

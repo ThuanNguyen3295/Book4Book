@@ -11,17 +11,19 @@ import { map } from "rxjs/operators";
 export class AuthService {
   authToken: any;
   user: any;
+  local = "http://localhost:8000/users"
+  api = "https://dry-plateau-56158.herokuapp.com/users/"
   constructor(private http: Http, private jwt: JwtHelperService) { }
 
   authenticateUser(user){
     let headers = new Headers(); //header for the json object
     headers.append('Content-Type', 'application/json');
-    return this.http.post('http://localhost:8000/users/authenticate', user, {headers: headers}).pipe(map(res=>res.json()));
+    return this.http.post(this.api + 'authenticate', user, {headers: headers}).pipe(map(res=>res.json()));
   }
   registerUser(user){
     let headers = new Headers(); //header for the json object
     headers.append('Content-Type', 'application/json');
-    return this.http.post('http://localhost:8000/users/register', user, {headers: headers}).pipe(map(res=>res.json()));
+    return this.http.post(this.api + 'register', user, {headers: headers}).pipe(map(res=>res.json()));
   }
   loadToken(){
     const token = localStorage.getItem('id_token');
