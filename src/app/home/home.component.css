@@ -104,10 +104,10 @@ agm-map {
 @media screen and (max-width: 500px){
     .full {
         padding: 0;
-        /* justify-content: space-around !important; */
+        justify-content: space-around !important;
     }
     .card-div {
-       margin: 10px 0 5px 50px;
+       margin: 10px 0 5px 0px;
     }
     .map-view, agm-map{
         width: 100%;

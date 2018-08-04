@@ -2,26 +2,31 @@
   <div class="detail-main">
     <div class="top-view">
         <img class="book-cover" [src]="book.image" alt="">
-        <agm-map [latitude]="lat" [longitude]="lng" [zoom]="10">
-          <agm-marker [latitude]="lat" [longitude]="lng" >
-              <agm-info-window >
-                  {{book.title}}
-              </agm-info-window>
-          </agm-marker>
-        </agm-map>
     </div>
     <div class="detail-body">
-      <!-- Book detail -->
-      <mat-card>
-        <mat-card-title>{{book.title}}</mat-card-title>
-        <mat-card-content>
-          <p>Owner Username: {{book.ownerName}}</p>
-          <p>Date posted: {{book.create_date}}</p>
-          <p>Genre: {{book.genre}}</p>
-          <p>Description: To be added in</p>
-          <p></p>
-        </mat-card-content>
-      </mat-card>
+      <mat-tab-group>
+          <mat-tab class="mat-tab-label" label="Detail">
+              <mat-card>
+                <mat-card-title>{{book.title}}</mat-card-title>
+                <mat-card-content>
+                  <p>Owner Username: {{book.ownerName}}</p>
+                  <p>Date posted: {{book.create_date}}</p>
+                  <p>Genre: {{book.genre}}</p>
+                  <p>Description: To be added in</p>
+                  <p></p>
+                </mat-card-content>
+              </mat-card>
+          </mat-tab>
+          <mat-tab label="View on map">
+            <agm-map [latitude]="lat" [longitude]="lng" [zoom]="10">
+              <agm-marker [latitude]="lat" [longitude]="lng" >
+                <agm-info-window >
+                    {{book.title}}
+                </agm-info-window>
+              </agm-marker>
+            </agm-map>
+          </mat-tab>
+      </mat-tab-group>
       <!-- Drop Down Fields for requesting book -->
       <mat-accordion>
         <mat-expansion-panel [expanded]="true">
@@ -30,7 +35,7 @@
               <b>Request</b>
             </mat-panel-title>
             <mat-panel-description>
-              Fill out a message and contact information
+             With a message and contact info.
             </mat-panel-description>
           </mat-expansion-panel-header>
           <mat-form-field>
