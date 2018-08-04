@@ -18,6 +18,7 @@
     flex-flow: row wrap;
     justify-content: flex-start;
     padding: 20px;
+
 }
 
 .card-div {
@@ -67,9 +68,6 @@ mat-spinner {
 agm-map {
     height: 200px;
     width: 400px;
-    /* height: 200px; */
-    /* width: 100%; */
-    /* max-width: 500px;  */
 }
 .map-view{
     position: absolute;
@@ -91,19 +89,29 @@ agm-map {
     width: 100%;
     height: 100%;
 }
-
-@media screen and (max-width: 414px){
+.show-map-button{
+    position: fixed;
+    bottom: 20px;
+    right: 10px;
+}
+.close-map{
+    position: absolute;
+    top: -20px;
+    right: 0px;
+    background: rgb(231, 230, 230);
+    color: black;
+}
+@media screen and (max-width: 500px){
     .full {
-        justify-content: flex-start ; 
         padding: 0;
+        /* justify-content: space-around !important; */
     }
     .card-div {
-        margin-left: 20px;
-        margin-bottom: 10px;  
+       margin: 10px 0 5px 50px;
     }
-    .book-cover {
-        height: 160px !important;
-        width: 120px;
+    .map-view, agm-map{
+        width: 100%;
+        height: 100%;
     }
 }
 
@@ -111,16 +119,11 @@ agm-map {
     .full {
         justify-content: flex-start ; 
     }
-    .card-div {
-        margin-left: 30px;
-        margin-bottom: 20px;  
-    }
     .book-cover {
         height: 180px !important;
         width: 140px;
     }
 }
-
 
 @media screen and (min-width: 1024px){
     .full {

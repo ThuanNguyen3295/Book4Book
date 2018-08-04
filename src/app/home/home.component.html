@@ -12,7 +12,10 @@
         </mat-card-footer>
         </mat-card>
     </div>
-    <div class="map-view" [ngClass]="{'full-screen': isFullScreen}" >
+    <button class="show-map-button" *ngIf="!showMap" (click)="showMap=true" mat-fab>
+        <mat-icon >place</mat-icon>
+    </button>
+    <div *ngIf="showMap" class="map-view" [ngClass]="{'full-screen': isFullScreen}" >
         <agm-map [latitude]="lat" [longitude]="lng" [zoom]="10">
             <agm-marker [latitude]="lat" [longitude]="lng" label="You">
                 <agm-info-window >
@@ -33,8 +36,11 @@
                 [radius]="10000">
             </agm-circle>
         </agm-map>
+        <button (click)="showMap=false; isFullScreen=false" class="close-map" mat-mini-fab>
+            <mat-icon>clear</mat-icon>
+        </button>
     </div>
-    <div class="map-actions">
+    <div *ngIf="showMap" class="map-actions">
         <button mat-icon-button (click)="isFullScreen=true">
             <i class="material-icons">fullscreen</i>
         </button>
