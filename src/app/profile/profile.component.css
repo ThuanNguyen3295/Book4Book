@@ -70,7 +70,6 @@
     height: calc(80% - 10px);
     align-self: flex-end;
     overflow: visible;
-    /* background-color: lightcoral; */
     border: 1px solid lightgray;
     border-radius: 2px;
 }
@@ -103,9 +102,30 @@
     width: 50%;
     opacity: 0.7;
 }
+@media (max-width: 500px){
+    .profile-main{
+        display: block;
+    }
+    .profile-info .user-profile-image{
+        width: 75px;
+        height: 75px;
+    }
+    .profile{
+        width: 100% !important;
+        height: auto;
+    }
+    .setting-div {
+        width: 100% !important;
+        border: none;
+    }  
+}
 @media (max-width: 1240px){
     .profile{
         width: 70%
+    }
+    .profile-info .user-profile-image{
+        width: 100px;
+        height: 100px;
     }
     .setting-div {
         width: 30%;

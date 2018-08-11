@@ -85,4 +85,16 @@ export class RequestService {
     }
     //TODO do a fetch to the database
   }
+
+  getUserBooks(){
+    var id = this.authService.getUserId()
+    if (id == null){
+      console.log("userid is null")
+    }
+    var token = this.authService.loadToken()
+    let headers = new Headers();
+    headers.append('Authorization', token);
+    headers.append('Content-Type', 'application/json')
+    return this.http.get(this.api + 'books/getUserBooks/' + id, {headers: headers}).pipe(map(res=>res.json()));
+  }
 }

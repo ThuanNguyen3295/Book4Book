@@ -55,5 +55,7 @@ export class AuthService {
   getUserZipCode(){
     return this.loadUser().zipcode
   }
-  
+  getUserId(){
+    return this.loadUser().id
+  }
 }

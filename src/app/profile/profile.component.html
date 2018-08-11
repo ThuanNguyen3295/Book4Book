@@ -1,20 +1,3 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <div class="profile-main">
   <div class="profile">
     <div class="profile-info">
@@ -33,7 +16,13 @@
                 </mat-panel-description>
               </mat-expansion-panel-header>
               <div class="requested-books">
-                <mat-card>
+                <mat-card *ngFor="let book of books">
+                  <img src="{{book.image}}" alt="">
+                  <mat-card-footer>
+                    <i class="material-icons" matTooltip="Cancel this request"  matTooltipPosition="below">clear</i>
+                  </mat-card-footer>
+                </mat-card>
+                <!-- <mat-card>
                   <img src="http://librosebooks.org/img/xggS:XXBBB.wVSVg87.81vXaEui7X2nttXnPXwVSVg8-iqWVfi-I-gVWq-VvjfV.fSv.png" alt="">
                   <mat-card-footer>
                     <i class="material-icons" matTooltip="Cancel this request"  matTooltipPosition="below">clear</i>
@@ -44,13 +33,7 @@
                   <mat-card-footer>
                     <i class="material-icons" matTooltip="Cancel this request"  matTooltipPosition="below">clear</i>
                   </mat-card-footer>
-                </mat-card>
-                <mat-card>
-                  <img src="http://librosebooks.org/img/xggS:XXBBB.wVSVg87.81vXaEui7X2nttXnPXwVSVg8-iqWVfi-I-gVWq-VvjfV.fSv.png" alt="">
-                  <mat-card-footer>
-                    <i class="material-icons" matTooltip="Cancel this request"  matTooltipPosition="below">clear</i>
-                  </mat-card-footer>
-                </mat-card>
+                </mat-card> -->
               </div>
             </mat-expansion-panel>
         </mat-accordion>
