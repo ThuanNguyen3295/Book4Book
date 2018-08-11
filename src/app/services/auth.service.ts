@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/map'
 import { Http, Headers, ResponseContentType, HttpModule } from '@angular/http';     
-import {tokenNotExpired} from 'angular2-jwt';
+// import {tokenNotExpired} from 'angular2-jwt';
+import {JwtHelperService} from '@auth0/angular-jwt'
 import { map } from "rxjs/operators";
 
 @Injectable({
@@ -10,17 +11,19 @@ import { map } from "rxjs/operators";
 export class AuthService {
   authToken: any;
   user: any;
-  constructor(private http: Http) { }
+  local = "http://localhost:8000/users"
+  api = "https://dry-plateau-56158.herokuapp.com/users/"
+  constructor(private http: Http, private jwt: JwtHelperService) { }
 
   authenticateUser(user){
     let headers = new Headers(); //header for the json object
     headers.append('Content-Type', 'application/json');
-    return this.http.post('http://localhost:8000/users/authenticate', user, {headers: headers}).pipe(map(res=>res.json()));
+    return this.http.post(this.api + 'authenticate', user, {headers: headers}).pipe(map(res=>res.json()));
   }
   registerUser(user){
     let headers = new Headers(); //header for the json object
     headers.append('Content-Type', 'application/json');
-    return this.http.post('http://localhost:8000/users/register', user, {headers: headers}).pipe(map(res=>res.json()));
+    return this.http.post(this.api + 'register', user, {headers: headers}).pipe(map(res=>res.json()));
   }
   loadToken(){
     const token = localStorage.getItem('id_token');
@@ -31,8 +34,11 @@ export class AuthService {
     this.user = JSON.parse(localStorage.getItem('user'));
     return this.user
   }
-  loggedIn(){
-    return tokenNotExpired('id_token');
+  isTokenExpired(){
+    var token = localStorage.getItem('id_token')
+    if (token == null)
+      return true
+    return this.jwt.isTokenExpired(token);
   } 
   storeUserData(token, user){
     localStorage.setItem('id_token', token);
@@ -49,6 +55,7 @@ export class AuthService {
   getUserZipCode(){
     return this.loadUser().zipcode
   }
+<<<<<<< HEAD
   
   //TESTING Username Availability
   checkUsernameAvailability(username){
@@ -59,4 +66,9 @@ export class AuthService {
     return this.http.get('http://localhost:8000/users/checkIfEmailExist/'+email).pipe(map(res=>res.json()));
   }
   
+=======
+  getUserId(){
+    return this.loadUser().id
+  }
+>>>>>>> 690ad721e43b08d75560bfefa9911cbb40b278c2
 }

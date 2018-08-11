@@ -108,7 +108,7 @@ export class HomeComponent implements OnInit{
       const mileRadius = this.filterService.getMileRadius()
       let zipBound: any
       if (mileRadius != -1){
-        this.showMap = true
+        // this.showMap = true
         zipBound = this.locationService.getMileRadius(this.authService.getUserZipCode(), mileRadius)
       }
       this.loading = true

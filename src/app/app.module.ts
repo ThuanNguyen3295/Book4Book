@@ -111,6 +111,7 @@ import { AgmCoreModule } from '@agm/core';
 import { SettingComponent } from './setting/setting.component';
 import { DetailpageComponent } from './detailpage/detailpage.component';
 import { ProfileComponent } from './profile/profile.component'
+import { JwtModule } from '@auth0/angular-jwt';
 
 const appRoutes: Routes = [
   {path:'', component: HomeComponent},
@@ -147,7 +148,8 @@ const appRoutes: Routes = [
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyDf-yIqxErTkbWzKhLox7nAANnrfDIY190&libraries',
       libraries: ['geometry']
-    })
+    }),
+    JwtModule.forRoot({config:{}})
   ],
   entryComponents:[
     LoginComponent,

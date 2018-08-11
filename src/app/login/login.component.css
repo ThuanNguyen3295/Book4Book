@@ -16,6 +16,10 @@ mat-card {
 .button-navigate {
     padding-top: -15px;
     padding-bottom: 15px;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
     display: flex;
     justify-content: center;  
 }
@@ -130,6 +134,10 @@ mat-spinner {
 .button-navigate-bottom {
     padding-top: -15px;
     padding-bottom: 15px;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
     display: flex;
     justify-content: center; 
 }

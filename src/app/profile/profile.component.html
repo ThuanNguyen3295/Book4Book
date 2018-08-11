@@ -1,3 +1,124 @@
-<p>
-  profile works!
-</p>
+<div class="profile-main">
+  <div class="profile">
+    <div class="profile-info">
+        <img class="user-profile-image" src="http://www.marywood.edu/web/staff/shannon/images/shannonprofile_circle.png" alt="">
+        <h3 class="user-name" >John Doe</h3>
+    </div>
+    <div class="profile-body">
+        <mat-accordion>
+            <mat-expansion-panel [expanded]="true">
+              <mat-expansion-panel-header>
+                <mat-panel-title style="font-size: 1.5rem; color:#2980B9">
+                  <b>Requested Book</b>
+                </mat-panel-title>
+                <mat-panel-description>
+                  List of the books requested
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+              <div class="requested-books">
+                <mat-card *ngFor="let book of books">
+                  <img src="{{book.image}}" alt="">
+                  <mat-card-footer>
+                    <i class="material-icons" matTooltip="Cancel this request"  matTooltipPosition="below">clear</i>
+                  </mat-card-footer>
+                </mat-card>
+                <!-- <mat-card>
+                  <img src="http://librosebooks.org/img/xggS:XXBBB.wVSVg87.81vXaEui7X2nttXnPXwVSVg8-iqWVfi-I-gVWq-VvjfV.fSv.png" alt="">
+                  <mat-card-footer>
+                    <i class="material-icons" matTooltip="Cancel this request"  matTooltipPosition="below">clear</i>
+                  </mat-card-footer>
+                </mat-card>
+                <mat-card>
+                  <img src="http://librosebooks.org/img/xggS:XXBBB.wVSVg87.81vXaEui7X2nttXnPXwVSVg8-iqWVfi-I-gVWq-VvjfV.fSv.png" alt="">
+                  <mat-card-footer>
+                    <i class="material-icons" matTooltip="Cancel this request"  matTooltipPosition="below">clear</i>
+                  </mat-card-footer>
+                </mat-card> -->
+              </div>
+            </mat-expansion-panel>
+        </mat-accordion>
+
+        <mat-accordion>
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title style="font-size: 1.5rem; color:#2980B9">
+                <b>Your book collection</b>
+              </mat-panel-title>
+              <mat-panel-description>
+                List of the books posted
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+            <div class="posted-books">
+              <mat-card>
+                <img src="http://librosebooks.org/img/xggS:XXBBB.wVSVg87.81vXaEui7X2nttXnPXwVSVg8-iqWVfi-I-gVWq-VvjfV.fSv.png" alt="">
+                <mat-card-footer>
+                  <i class="material-icons" matTooltip="Delete this book"  matTooltipPosition="below">delete</i>
+                </mat-card-footer>
+              </mat-card>
+            </div>
+          </mat-expansion-panel>
+        </mat-accordion>
+
+                <mat-accordion>
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title style="font-size: 1.5rem; color:#2980B9">
+                <b>Gamification</b>
+              </mat-panel-title>
+              <mat-panel-description>
+                Click to see your progress
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+            <div class="gamification">
+              <mat-progress-spinner
+                color="green"
+                mode="determinate"
+                value="71">
+              </mat-progress-spinner>
+            </div>
+          </mat-expansion-panel>
+        </mat-accordion>
+    </div>
+  </div>
+  <div class="setting-div">
+    <div class="header">
+        <i class="material-icons">settings</i><h4>Setting</h4>
+    </div>
+    <div class="setting-body">
+      <h5><b>Account Information:</b></h5>
+      <div class="info">
+        <div class="key">
+          <p>Name:</p>
+          <p>Username: </p>
+          <p>Email:</p>
+          <p>Zipcode:</p>
+        </div>
+        <div class="value">
+          <p> My name</p>
+          <p>EvanNguyen</p>
+          <p>abc@123.com</p>
+          <p>92126</p>
+        </div>
+      </div>
+      <mat-divider></mat-divider>
+      <h5><b>Setting:</b></h5>
+      <div class="setting">
+        <div class="abc">
+          <p>Number books requested today: 1/3</p>
+          <p>Set book pending status on first request:</p>
+          <mat-slide-toggle checked></mat-slide-toggle>
+          <p>Recieve notification via email:</p>
+          <mat-slide-toggle checked></mat-slide-toggle>
+          <p>Recieve notification via phone:</p>
+          <mat-slide-toggle></mat-slide-toggle>
+        </div>
+      </div>
+      <mat-divider style="margin-top: 10px;"></mat-divider>
+      <h5><b>More:</b></h5>
+      <div style="margin-left: 10px">
+        <a style="display: block;" href="#">Privacy</a>
+        <a href="#">Term And Conditions</a>
+      </div>
+    </div>
+  </div>
+</div>

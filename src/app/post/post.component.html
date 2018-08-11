@@ -1,10 +1,8 @@
 <mat-spinner *ngIf="loading"></mat-spinner>
-<div *ngIf="!loading" class="container">
+<div *ngIf="!loading" class="post-container">
     <div class="form">
-      <form (ngSubmit)="onPostNewBook()" [formGroup]="bookFormGroup">
-
-        <div class="row">
-            <div class="col-md-8">
+        <form (ngSubmit)="onPostNewBook()" [formGroup]="bookFormGroup">
+            <div class="book-detail">
                 <mat-form-field hintLabel="Max 30 characters">
                     <input formControlName="title" matInput #input maxlength="30" required placeholder="Book Title">
                     <mat-hint align="end">{{input.value?.length || 0}}/30</mat-hint>
@@ -47,28 +45,15 @@
                       <mat-option value="Fantasy"> Fantasy </mat-option>
                     </mat-select>
                 </mat-form-field>
-                <!-- <mat-form-field>
-                    <mat-select formControlName="subject"  required placeholder="Subject">
-                      <mat-option value="None">None</mat-option>
-                      <mat-option value="Math"> Math </mat-option>
-                      <mat-option value="English"> English </mat-option>
-                      <mat-option value="Chemistry"> Chemistry </mat-option>        
-                      <mat-option value="Physics"> Physics </mat-option>
-                      <mat-option value="Art"> Art </mat-option>
-                      <mat-option value="Music"> Music </mat-option>
-                      <mat-option value="History"> History </mat-option>
-                      <mat-option value="Psychology"> Psychology </mat-option>
-                      <mat-option value="Literature"> Literature </mat-option>
-                      <mat-option value="Foreign Language"> Foreign Language </mat-option>
-                      <mat-option value="Biology"> Biology </mat-option>
-                      <mat-option value="Social Study"> Social Study </mat-option> 
-                    </mat-select>
-                </mat-form-field> -->
                 <mat-form-field>
                     <input formControlName="version" matInput placeholder="Version">
                 </mat-form-field>
+                <!-- <div class="button-submit">
+                        <button mat-raised-button type="submit" color="primary" [disabled]="!bookFormGroup.valid ">Post</button>
+                        <a mat-raised-button style="text-decoration: none" routerLink="">Cancel</a>
+                </div> -->
             </div>
-            <div class="col-md-4">
+            <div class="book-image">
                 <div class="select-image-div">
                     <button class="select-image" mat-raised-button color="accent" outline mat-button round> 
                         <i class="material-icons">
@@ -83,12 +68,11 @@
                     <img *ngIf="selectedImagePreview" src="{{selectedImagePreview}}"  alt="">
                 </div>
             </div>
-        </div>
+        </form>  
         <div class="button-submit">
-            <button mat-raised-button type="submit" color="primary" [disabled]="!bookFormGroup.valid ">Post</button>
-            <!-- <button mat-raised-button>Cancel</button> -->
+            <button mat-raised-button type="submit" (click)="onPostNewBook()" color="primary" [disabled]="!bookFormGroup.valid ">Post</button>
             <a mat-raised-button style="text-decoration: none" routerLink="">Cancel</a>
         </div>
-      </form>  
     </div>
 </div>
+<!-- <canvas id="canvas" width=300></canvas> -->
