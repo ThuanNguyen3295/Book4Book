@@ -50,4 +50,13 @@ export class AuthService {
     return this.loadUser().zipcode
   }
   
+  //TESTING Username Availability
+  checkUsernameAvailability(username){
+     return this.http.get('http://localhost:8000/users/checkIfUsernameExist/'+username).pipe(map(res=>res.json()));
+  }
+
+  checkEmailAvailability(email){
+    return this.http.get('http://localhost:8000/users/checkIfEmailExist/'+email).pipe(map(res=>res.json()));
+  }
+  
 }

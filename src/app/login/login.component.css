@@ -172,3 +172,8 @@ mat-spinner {
     }
 
 }
+
+/* Form errors */
+.form-field-error {
+    color: red;
+}
