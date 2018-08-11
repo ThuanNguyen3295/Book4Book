@@ -5,8 +5,8 @@ import { HostListener } from '@angular/core'
 import { LoginComponent } from '../app/login/login.component';
 import { MatDialog } from '@angular/material';
 import { FilterOptionsDialog } from './filterOptions/filter.component'
-import {JwtHelperService} from '@auth0/angular-jwt'
-
+import { JwtHelperService} from '@auth0/angular-jwt'
+import { Router } from '@angular/router'
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -18,7 +18,7 @@ export class AppComponent implements AfterViewInit {
   dialogResult="";
   @ViewChild('sidenavleft') public sideNav:MatSidenav;
   constructor(
-    public matDialog: MatDialog, private jwt: JwtHelperService
+    public matDialog: MatDialog, private jwt: JwtHelperService, private router: Router
   ){}
 
   ngAfterViewInit() {
