@@ -13,9 +13,12 @@
                 <mat-form-field class="form-field" *ngIf="!isCreatingNewAccount">
                     <input matInput required formControlName="username"  maxlength="10" placeholder="Username" type="text">
                 </mat-form-field>
+                <small class="form-field-error" *ngIf="isUsernameWrong">Username not found!</small>
+
                 <mat-form-field class="form-field" *ngIf="!isCreatingNewAccount">
                     <input matInput required formControlName="password" placeholder="Password" type="password">
                 </mat-form-field>
+                <small class="form-field-error" *ngIf="isPasswordWrong">Wrong password! Try again!</small>
 
                 <!-- Register -->
                 <mat-form-field class="form-field" *ngIf="isCreatingNewAccount">

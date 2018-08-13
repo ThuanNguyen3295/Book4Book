@@ -18,6 +18,8 @@ export class LoginComponent implements OnInit {
   isCreatingNewAccount: boolean = false;
   isEmailTaken: boolean = false;
   isUsernameTaken: boolean = false;
+  isUsernameWrong: boolean = false;
+  isPasswordWrong: boolean = false;
   constructor(
     public thisDiaLogRef: MatDialogRef<LoginComponent>,
     @Inject(MAT_DIALOG_DATA) public data: String,
@@ -44,6 +46,7 @@ export class LoginComponent implements OnInit {
     }
   }
 
+  //USER SIGNING IN
   signingIn(){
     this.loading = true;
     const user = {
@@ -62,12 +65,19 @@ export class LoginComponent implements OnInit {
         });
       }else {
         //TODO display error message in the form 
-        this.snackBar.open(data.msg, null, {
-          duration: 2000,
-        });
+        if(data.msg == " User not found"){
+          this.isUsernameWrong = true;
+          this.isPasswordWrong = false;
+        }
+        else{
+          this.isPasswordWrong = true;
+          this.isUsernameWrong = false;
+        }
       }
     });
   }
+  
+  //REGISTER THE USER
   registeringAccount(){
     const user = {
       username:  this.userCredentials.get("username").value,

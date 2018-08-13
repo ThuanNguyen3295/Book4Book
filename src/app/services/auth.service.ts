@@ -55,7 +55,6 @@ export class AuthService {
   getUserZipCode(){
     return this.loadUser().zipcode
   }
-<<<<<<< HEAD
   
   //TESTING Username Availability
   checkUsernameAvailability(username){
@@ -66,9 +65,7 @@ export class AuthService {
     return this.http.get('http://localhost:8000/users/checkIfEmailExist/'+email).pipe(map(res=>res.json()));
   }
   
-=======
   getUserId(){
     return this.loadUser().id
   }
->>>>>>> 690ad721e43b08d75560bfefa9911cbb40b278c2
 }
